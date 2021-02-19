@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_141831) do
+ActiveRecord::Schema.define(version: 2021_01_31_183035) do
+
+  create_table "actions", force: :cascade do |t|
+    t.integer "participation_id", null: false
+    t.integer "activity", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["participation_id"], name: "index_actions_on_participation_id"
+  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -40,9 +48,42 @@ ActiveRecord::Schema.define(version: 2021_01_31_141831) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "characters", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "combatants", force: :cascade do |t|
+    t.string "combatable_type", null: false
+    t.integer "combatable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["combatable_type", "combatable_id"], name: "index_combatants_on_combatable"
+  end
+
   create_table "combats", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "creatures", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "template_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["template_id"], name: "index_creatures_on_template_id"
+  end
+
+  create_table "participations", force: :cascade do |t|
+    t.integer "round_id", null: false
+    t.integer "combatant_id", null: false
+    t.integer "base_activity", default: 100, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["combatant_id"], name: "index_participations_on_combatant_id"
+    t.index ["round_id", "combatant_id"], name: "index_participations_on_round_id_and_combatant_id", unique: true
+    t.index ["round_id"], name: "index_participations_on_round_id"
   end
 
   create_table "rounds", force: :cascade do |t|
@@ -57,5 +98,8 @@ ActiveRecord::Schema.define(version: 2021_01_31_141831) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "creatures", "creatures", column: "template_id"
+  add_foreign_key "participations", "combatants"
+  add_foreign_key "participations", "rounds"
   add_foreign_key "rounds", "combats"
 end
