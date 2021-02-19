@@ -15,6 +15,7 @@ en:
     show:
       combat_id: "Combat #%{id}"
       round_number: "Round %{number}"
+      next_phase: "Next phase"
       combatants: "Combatants"
   actions:
     actionables:

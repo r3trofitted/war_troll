@@ -1,4 +1,6 @@
 class Round < ApplicationRecord
+  FinishedRoundError = Class.new(StandardError)
+    
   PHASES = [
     SETUP             = "setup",
     SPELL             = "spell",
@@ -19,4 +21,20 @@ class Round < ApplicationRecord
   has_many :combatants, through: :participations
   
   enum phase: PHASES, _default: SETUP, _prefix: :at_phase
+  
+  def continue!
+    raise FinishedRoundError if finished?
+    
+    send "at_phase_#{next_phase}!"
+  end
+  
+  private
+  
+  def next_phase
+    PHASES.at(Round.phases[phase] + 1)
+  end
+  
+  def finished?
+    at_phase_final_orientation?
+  end
 end

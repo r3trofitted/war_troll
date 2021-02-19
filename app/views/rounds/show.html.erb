@@ -4,6 +4,10 @@
     <h1 class="round-number"><%= t ".round_number", number: @round.number %></h1>
   </header>
   <main>
+    <section id="phase-controls">
+      <%= button_to t(".next_phase"), continue_round_path(@round), form_class: "next-phase" %>
+    </section>
+    
     <section id="combatants">
       <h1><%= t ".combatants" %></h1>
       <%= turbo_stream_from [@round, :participations] %>
