@@ -1,0 +1,64 @@
+.round {
+  max-width: 1044px;
+  height: 100vh;
+  
+  margin: 0 auto;
+  
+  header {
+    text-align: center;
+    position: relative;
+    padding: 2em 0;
+    
+    h1 {
+      font-size: 3rem;
+      font-family: var(--ff-heading);
+    
+      line-height: 1;
+      margin: 0;
+    
+      position: relative;
+      display: inline-block;
+    }
+  
+    h1::before, h1::after {
+      content: "";
+      height: 100%;
+      display: block;
+      position: absolute;
+    }
+  
+    h1::before {
+      background-color: var(--clr-white);
+      z-index: -1;
+      left: -1ch;
+      right: -1ch;
+    }
+  
+    h1::after {
+      background-color: var(--clr-black);
+      width: 100vw;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      z-index: -2;
+    }
+    
+    .combat-id {
+      position: absolute;
+      top: 0.5em;
+      right: 0;
+
+      font-size: 0.6rem;
+
+      color: var(--clr-black);
+
+      z-index: 1;
+    }
+  }
+
+  main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 1em;
+  }
+}

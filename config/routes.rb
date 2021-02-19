@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "/combats/:combat_id/round-:number", to: "rounds#show", as: :combat_round_canonical
 end
