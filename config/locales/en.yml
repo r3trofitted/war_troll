@@ -19,5 +19,7 @@ en:
       combatants: "Combatants"
   actions:
     actionables:
+      missile_attack:
+        notice: "%{combatant} makes a missile attack (%{weapon})"
       spell_preparation:
         notice: "%{combatant} prepares a spell (%{spell})"
