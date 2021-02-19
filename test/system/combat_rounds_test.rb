@@ -23,11 +23,11 @@ class CombatRoundsTest < ApplicationSystemTestCase
     click_on "Next phase"
     
     # 4. Phase 4: Fire (A)
-    # assert_current_phase "Fire (A)"
-    # @auberc_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: MissileAttack.new(phase: "A", weapon: "spear", target: @crocodile)
-    # assert_text "Auberc makes a missile attack (spear)"
-    # assert_text "50% activity left"
-    # click_on "Next phase"
+    assert_current_phase "Fire (A)"
+    @auberc_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: MissileAttack.new(phase: "A", weapon: "spear", target: @crocodile)
+    assert_text "Auberc makes a missile attack (spear)"
+    assert_text "50% activity left"
+    click_on "Next phase"
     
     # 5. Phase 5: Fire Results (A)
     # assert_current_phase "Fire Results (A)"
