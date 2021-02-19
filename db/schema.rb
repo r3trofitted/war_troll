@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_183035) do
+ActiveRecord::Schema.define(version: 2021_01_31_183114) do
 
   create_table "actions", force: :cascade do |t|
     t.integer "participation_id", null: false
+    t.string "actionable_type", null: false
+    t.integer "actionable_id", null: false
     t.integer "activity", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["actionable_type", "actionable_id"], name: "index_actions_on_actionable"
     t.index ["participation_id"], name: "index_actions_on_participation_id"
   end
 
@@ -94,6 +97,12 @@ ActiveRecord::Schema.define(version: 2021_01_31_183035) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["combat_id", "number"], name: "index_rounds_on_combat_id_and_number", unique: true
     t.index ["combat_id"], name: "index_rounds_on_combat_id"
+  end
+
+  create_table "spell_preparations", force: :cascade do |t|
+    t.string "spell"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
