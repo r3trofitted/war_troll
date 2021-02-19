@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_01_31_141831) do
     t.integer "phase", default: 1, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"combat_id\", \"number_id\"", name: "index_rounds_on_combat_id_and_number_id", unique: true
+    t.index ["combat_id", "number"], name: "index_rounds_on_combat_id_and_number", unique: true
     t.index ["combat_id"], name: "index_rounds_on_combat_id"
   end
 

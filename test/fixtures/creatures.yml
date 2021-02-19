@@ -1,0 +1,5 @@
+large_crocodile:
+  name: Crocodile (Large)
+crocodile_1:
+  name: "Crocodile #1"
+  template: large_crocodile

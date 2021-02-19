@@ -7,7 +7,7 @@ class CreateRounds < ActiveRecord::Migration[6.1]
 
       t.timestamps
       
-      t.index [:combat_id, :number_id], unique: true
+      t.index [:combat_id, :number], unique: true
     end
   end
 end
