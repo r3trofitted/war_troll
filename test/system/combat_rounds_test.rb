@@ -8,11 +8,11 @@ class CombatRoundsTest < ApplicationSystemTestCase
     assert_text "Round 1"
   
     # 1. Phase 1: Spell
-    # assert_current_phase "Spell"
-    # @balor_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: SpellPreparation.new(spell: "Sleep V")
-    # assert_text "Balor prepares a spell (Sleep V)"
-    # assert_text "10% activity left"
-    # click_on "Next phase"
+    assert_current_phase "Spell"
+    @balor_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: SpellPreparation.new(spell: "Sleep V")
+    assert_text "Balor prepares a spell (Sleep V)"
+    assert_text "10% activity left"
+    click_on "Next phase"
   
     # 2. Phase 2: Spell results
     # assert_current_phase "Spell Results"
@@ -39,9 +39,12 @@ class CombatRoundsTest < ApplicationSystemTestCase
     
     # 6. Phase 6: Movement/Maneuver
     # assert_current_phase "Movement/Maneuver"
+    # @auberc_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: StaticManeuvre.new(description: "draws his sword", activity: 20)
     # assert_text "Auberc draws his sword"
+    # @auberc_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: Movement.new(activity: 30)
     # assert_text "Auberc moves (30%)"
     # assert_text "Auberc has 0% activity left"
+    # @balor_in_auberc_and_balor_vs_crocodile_round_one.actions.create actionable: Movement.new(activity: 10)
     # assert_text "Balor moves (10%)"
     # assert_text "Balor has 0% activity left"
     # within_fieldset("Crocodile #1") { select "50%", from: "movement" }
