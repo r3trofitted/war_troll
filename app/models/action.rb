@@ -5,6 +5,8 @@ class Action < ApplicationRecord
   
   delegated_type :actionable, types: %w(SpellPreparation MissileAttack), dependent: :destroy, validate: true
   
+  delegate :name, to: :combatant, prefix: true
+  
   before_save :set_activity
   
   validates_associated :actionable

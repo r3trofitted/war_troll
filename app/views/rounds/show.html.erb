@@ -4,6 +4,12 @@
     <h1 class="round-number"><%= t ".round_number", number: @round.number %></h1>
   </header>
   <main>
+    <section id="combatants">
+      <h1><%= t ".combatants" %></h1>
+      <%= turbo_stream_from [@round, :participations] %>
+      <%= render @round.participations %>
+    </section>
+    
     <section id="phases-tracker">
       <ol start="0">
         <% Round::PHASES.each do |phase| %>

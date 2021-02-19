@@ -4,6 +4,10 @@
   
   margin: 0 auto;
   
+  section > h1 {
+    display: none;
+  }
+  
   header {
     text-align: center;
     position: relative;
@@ -60,6 +64,64 @@
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 1em;
+  }
+  
+  #combatants {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    
+    .combatant-panel {
+      border: 1px solid var(--clr-black);
+      background-color: var(--clr-white);
+      
+      display: grid;
+      grid-template-columns: minmax(70px, 1fr) 3fr;
+      grid-template-areas: "combatant actions"
+                           "activity  actions";
+      
+    }
+
+    .combatant {
+      grid-area: combatant;
+      
+      display: flex;
+      align-items: flex-start;
+      
+      background-color: var(--clr-grey);
+      
+      & > h1 {
+        margin: 0 0 0.5em 0.5em;
+        order: 2;
+      }
+    }
+    
+    .activity {
+      grid-area: activity;
+      
+      display: block;
+      width: 100%;
+
+      border: 1px solid var(--clr-black);
+      border-left: 0;
+      border-bottom: 0;
+      background: repeating-linear-gradient(to right, var(--clr-black), var(--clr-white) 1px, var(--clr-white) 10%);
+    }
+    .activity::-webkit-meter-bar {
+      background: repeating-linear-gradient(to right, var(--clr-black), var(--clr-white) 1px, var(--clr-white) 10%);
+    }
+
+    .activity:-moz-meter-optimum::-moz-meter-bar {
+      background: var(--clr-black);
+    }
+
+    .activity::-webkit-meter-optimum-value {
+      background: var(--clr-black);
+    }
+
+    .round-actions {
+      grid-area: actions;
+    }
   }
   
   #phases-tracker {

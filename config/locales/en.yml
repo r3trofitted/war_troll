@@ -15,3 +15,8 @@ en:
     show:
       combat_id: "Combat #%{id}"
       round_number: "Round %{number}"
+      combatants: "Combatants"
+  actions:
+    actionables:
+      spell_preparation:
+        notice: "%{combatant} prepares a spell (%{spell})"

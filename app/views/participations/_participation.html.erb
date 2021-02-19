@@ -1,0 +1,10 @@
+<div class="combatant-panel">
+  <article class="combatant">
+    <h1><%= participation.combatant.combatable.name %></h1>
+    <%= image_tag "portrait.png", size: "70" %>
+  </article>
+  <meter min="0" max="100" value="<%= participation.activity_left %>" class="activity"><%= participation.activity_left %>% activity left</meter>
+  <div class="round-actions">
+    <%= render participation.actions %>
+  </div>
+</div>
