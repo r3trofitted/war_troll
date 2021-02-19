@@ -19,8 +19,8 @@ class CombatRoundsTest < ApplicationSystemTestCase
     click_on "Next phase"
     
     # 3. Phase 3: Spell Orientation
-    # assert_current_phase "Spell Orientation"
-    # click_on "Next phase"
+    assert_current_phase "Spell Orientation"
+    click_on "Next phase"
     
     # 4. Phase 4: Fire (A)
     # assert_current_phase "Fire (A)"
