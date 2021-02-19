@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_31_183114) do
+ActiveRecord::Schema.define(version: 2021_02_16_140917) do
 
   create_table "actions", force: :cascade do |t|
     t.integer "participation_id", null: false
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 2021_01_31_183114) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["template_id"], name: "index_creatures_on_template_id"
+  end
+
+  create_table "missile_attacks", force: :cascade do |t|
+    t.string "phase", default: "A", null: false
+    t.string "weapon"
+    t.integer "target_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["target_id"], name: "index_missile_attacks_on_target_id"
   end
 
   create_table "participations", force: :cascade do |t|
