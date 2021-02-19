@@ -3,4 +3,13 @@
     <p class="combat-id"><%= t ".combat_id", id: @round.combat_id %></p>
     <h1 class="round-number"><%= t ".round_number", number: @round.number %></h1>
   </header>
+  <main>
+    <section id="phases-tracker">
+      <ol start="0">
+        <% Round::PHASES.each do |phase| %>
+          <%= tag.li t(phase, scope: "phases"), class: class_names("current-phase": @round.phase.eql?(phase)) %>
+        <% end %>
+      </ol>
+    </section>
+  </main>
 </article>

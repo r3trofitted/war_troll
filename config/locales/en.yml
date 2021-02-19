@@ -1,4 +1,16 @@
 en:
+  phases:
+    spell: "Spell"
+    spell_results: "Spell Results"
+    spell_orientation: "Spell Orientation"
+    fire_a: "Fire (A)"
+    fire_results_a: "Fire Results (A)"
+    movement_maneuvre: "Movement/Maneuver"
+    fire_b: "Fire (B)"
+    fire_results_b: "Fire Results (B)"
+    melee: "Melee"
+    melee_results: "Melee results"
+    final_orientation: "Final Orientation"
   rounds:
     show:
       combat_id: "Combat #%{id}"

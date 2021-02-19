@@ -61,4 +61,15 @@
     grid-template-columns: 3fr 1fr;
     gap: 1em;
   }
+  
+  #phases-tracker {
+    border: 1px solid var(--clr-black);
+    background-color: var(--clr-white);
+    
+    align-self: start;
+    
+    .current-phase {
+      font-weight: bold;
+    }
+  }
 }
