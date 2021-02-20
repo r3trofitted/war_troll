@@ -6,7 +6,7 @@
   <main>
     <section id="phase-controls">
       <% if @round.at_phase_fire_results_a? %>
-        <%= form_with model: MissileAttackResolution.new(missile_attack: @round.actions.missile_attacks.unresolved.first) do |f| %>
+        <%= form_with model: [@round, MissileAttackResolution.new(missile_attack: @round.actions.missile_attacks.unresolved.first)] do |f| %>
           <%= f.label :roll, t(".attack_roll", combatant: f.object.missile_attack.combatant_name) %>
           <%= f.text_field :roll %>
           <%= f.submit %>
