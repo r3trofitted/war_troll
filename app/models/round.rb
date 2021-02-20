@@ -23,6 +23,10 @@ class Round < ApplicationRecord
     def unresolved
       find_all &:unresolved?
     end
+    
+    def resolved
+      find_all &:resolved?
+    end
   end
   
   enum phase: PHASES, _default: SETUP, _prefix: :at_phase

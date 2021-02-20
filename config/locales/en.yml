@@ -25,6 +25,7 @@ en:
   actions:
     actionables:
       missile_attack:
-        notice: "%{combatant} makes a missile attack (%{weapon})"
+        declaration: "%{combatant} makes a missile attack (%{weapon})"
+        resolution: "%{combatant} inflicts %{result}"
       spell_preparation:
         notice: "%{combatant} prepares a spell (%{spell})"
