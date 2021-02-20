@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   resources :rounds, only: [] do
     post "continue", on: :member 
   end
+  resources :missile_attack_resolutions, only: [:create]
 end
