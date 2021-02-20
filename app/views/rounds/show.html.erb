@@ -5,6 +5,13 @@
   </header>
   <main>
     <section id="phase-controls">
+      <% if @round.at_phase_fire_results_a? %>
+        <%= form_with model: MissileAttackResolution.new(missile_attack: @round.actions.missile_attacks.unresolved.first) do |f| %>
+          <%= f.label :roll %>
+          <%= f.text_field :roll %>
+          <%= f.submit %>
+        <% end %>
+      <% end %>
       <%= button_to t(".next_phase"), continue_round_path(@round), form_class: "next-phase" %>
     </section>
     
