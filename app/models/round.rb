@@ -19,6 +19,7 @@ class Round < ApplicationRecord
   belongs_to :combat
   has_many :participations
   has_many :combatants, through: :participations
+  has_many :actions, through: :participations
   
   enum phase: PHASES, _default: SETUP, _prefix: :at_phase
   
