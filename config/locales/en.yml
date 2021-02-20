@@ -1,4 +1,8 @@
 en:
+  helpers:
+    submit:
+      missile_attack_resolution:
+        create: "Resolve"
   phases:
     spell: "Spell"
     spell_results: "Spell Results"
@@ -17,6 +21,7 @@ en:
       round_number: "Round %{number}"
       next_phase: "Next phase"
       combatants: "Combatants"
+      attack_roll: "%{combatant}'s attack roll"
   actions:
     actionables:
       missile_attack:
