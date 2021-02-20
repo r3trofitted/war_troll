@@ -30,12 +30,12 @@ class CombatRoundsTest < ApplicationSystemTestCase
     click_on "Next phase"
     
     # 5. Phase 5: Fire Results (A)
-    # assert_current_phase "Fire Results (A)"
-    # fill_in "Auberc's attack roll", with: "67"
-    # click_on "Resolve"
-    # assert_text "Auberc inflicts 8 hits"
-    # assert_text "The crocodile has 72 hits left"
-    # click_on "Next phase"
+    assert_current_phase "Fire Results (A)"
+    fill_in "Auberc's attack roll", with: "67"
+    click_on "Resolve"
+    assert_text "Auberc inflicts 8 hits"
+    assert_text "The crocodile has 72 hits left"
+    click_on "Next phase"
     
     # 6. Phase 6: Movement/Maneuver
     # assert_current_phase "Movement/Maneuver"
