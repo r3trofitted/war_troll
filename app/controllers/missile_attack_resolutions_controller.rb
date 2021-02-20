@@ -1,9 +1,9 @@
 class MissileAttackResolutionsController < ApplicationController
   def create
     round      = Round.find(params[:round_id])
-    resolution = MissileAttackResolution.new(missile_attack: round.actions.missile_attacks.unresolved.first)
+    resolution = MissileAttackResolution.new(missile_attack: round.actions.missile_attacks.unresolved.first, roll: missile_attack_resolution_params[:roll])
     
-    @result = resolution.enter_roll(missile_attack_resolution_params[:roll])
+    @result = resolution.resolve
   end
   
   private

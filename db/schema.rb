@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2021_02_20_194122) do
     t.integer "target_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "roll"
+    t.string "result"
     t.index ["target_id"], name: "index_missile_attacks_on_target_id"
   end
 

@@ -12,7 +12,7 @@ class Action < ApplicationRecord
   validates_associated :actionable
   
   def resolved?
-    actionable.try(:roll?)
+    actionable.try(:result?)
   end
 
   def unresolved?
