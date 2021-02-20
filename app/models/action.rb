@@ -10,7 +10,15 @@ class Action < ApplicationRecord
   before_save :set_activity
   
   validates_associated :actionable
+  
+  def resolved?
+    actionable.try(:roll?)
+  end
 
+  def unresolved?
+    not resolved?
+  end
+  
   private
   
   def set_activity

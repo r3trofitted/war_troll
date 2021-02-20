@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_16_140917) do
+ActiveRecord::Schema.define(version: 2021_02_20_194122) do
 
   create_table "actions", force: :cascade do |t|
     t.integer "participation_id", null: false
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_140917) do
     t.integer "target_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "roll"
     t.index ["target_id"], name: "index_missile_attacks_on_target_id"
   end
 
