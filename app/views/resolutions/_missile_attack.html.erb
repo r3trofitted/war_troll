@@ -1,10 +1,10 @@
-<% if resolution.action.unresolved? %>
+<% if resolution.unresolved? %>
   <%= form_with model: resolution, scope: :resolution, url: action_resolution_path(resolution.action) do |f| %>
-    <%= f.label :roll, t(".attack_roll", combatant: f.object.action.combatant_name) %>
+    <%= f.label :roll, t(".attack_roll", combatant: f.object.combatant_name) %>
     <%= f.text_field :roll %>
     <%= f.submit %>
   <% end %>
 <% else %>
-  <%= t ".result", combatant: resolution.action.combatant_name, result: resolution.action.actionable.result %>
-  <%= t ".application", target: resolution.action.actionable.target.name, hits: resolution.action.actionable.target.combatable.hits %>
+  <%= t ".result", combatant: resolution.combatant_name, result: resolution.actionable.result %>
+  <%= t ".application", target: resolution.actionable.target.name, hits: resolution.actionable.target.combatable.hits %>
 <% end %>

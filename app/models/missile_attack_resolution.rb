@@ -1,10 +1,8 @@
-class MissileAttackResolution
-  include ActiveModel::Model
-  
-  attr_accessor :missile_attack, :roll
+module MissileAttackResolution
+  delegate :missile_attack, to: :action, private: true
   
   def resolve
-    missile_attack.actionable.update result: result
+    missile_attack.update result: result
   end
   
   def result
