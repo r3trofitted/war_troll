@@ -19,15 +19,7 @@ class Round < ApplicationRecord
   belongs_to :combat
   has_many :participations
   has_many :combatants, through: :participations
-  has_many :actions, through: :participations do
-    def unresolved
-      find_all &:unresolved?
-    end
-    
-    def resolved
-      find_all &:resolved?
-    end
-  end
+  has_many :actions, through: :participations
   
   enum phase: PHASES, _default: SETUP, _prefix: :at_phase
   
@@ -35,6 +27,10 @@ class Round < ApplicationRecord
     raise FinishedRoundError if finished?
     
     send "at_phase_#{next_phase}!"
+  end
+  
+  def resolutions
+    actions.missile_attacks.map { |a| MissileAttackResolution.new(missile_attack: a) }
   end
   
   private

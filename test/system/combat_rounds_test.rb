@@ -34,7 +34,7 @@ class CombatRoundsTest < ApplicationSystemTestCase
     fill_in "Auberc's attack roll", with: "67"
     click_on "Resolve"
     assert_text "Auberc inflicts 8 hits"
-    assert_text "The crocodile has 72 hits left"
+    assert_text "Crocodile #1 has 72 hits left"
     click_on "Next phase"
     
     # 6. Phase 6: Movement/Maneuver

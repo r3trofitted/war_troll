@@ -15,17 +15,20 @@ en:
     melee: "Melee"
     melee_results: "Melee results"
     final_orientation: "Final Orientation"
+  missile_attack_resolutions:
+    missile_attack_resolution:
+      attack_roll: "%{combatant}'s attack roll"
+      result: "%{combatant} inflicts %{result}"
+      application: "%{target} has %{hits} hits left"
   rounds:
     show:
       combat_id: "Combat #%{id}"
       round_number: "Round %{number}"
       next_phase: "Next phase"
       combatants: "Combatants"
-      attack_roll: "%{combatant}'s attack roll"
   actions:
     actionables:
       missile_attack:
-        declaration: "%{combatant} makes a missile attack (%{weapon})"
-        resolution: "%{combatant} inflicts %{result}"
+        notice: "%{combatant} makes a missile attack (%{weapon})"
       spell_preparation:
         notice: "%{combatant} prepares a spell (%{spell})"

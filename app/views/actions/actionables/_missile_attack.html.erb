@@ -1,7 +1,3 @@
 <p class="action missile-attack">
-  <% if action.resolved? %>
-    <%= t ".resolution", combatant: action.combatant_name, result: action.actionable.result %>
-  <% else %>
-    <%= t ".declaration", combatant: action.combatant_name, weapon: action.missile_attack.weapon, target: action.missile_attack.target %>
-  <% end %>
+  <%= t ".notice", combatant: action.combatant_name, weapon: action.missile_attack.weapon, target: action.missile_attack.target %>
 </p>
