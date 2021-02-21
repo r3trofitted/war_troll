@@ -1,7 +1,7 @@
 en:
   helpers:
     submit:
-      missile_attack_resolution:
+      resolution:
         create: "Resolve"
   phases:
     spell: "Spell"
@@ -15,11 +15,6 @@ en:
     melee: "Melee"
     melee_results: "Melee results"
     final_orientation: "Final Orientation"
-  missile_attack_resolutions:
-    missile_attack_resolution:
-      attack_roll: "%{combatant}'s attack roll"
-      result: "%{combatant} inflicts %{result}"
-      application: "%{target} has %{hits} hits left"
   rounds:
     show:
       combat_id: "Combat #%{id}"
@@ -32,3 +27,8 @@ en:
         notice: "%{combatant} makes a missile attack (%{weapon})"
       spell_preparation:
         notice: "%{combatant} prepares a spell (%{spell})"
+  resolutions:
+    missile_attack:
+      attack_roll: "%{combatant}'s attack roll"
+      result: "%{combatant} inflicts %{result}"
+      application: "%{target} has %{hits} hits left"

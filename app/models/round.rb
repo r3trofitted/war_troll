@@ -30,7 +30,7 @@ class Round < ApplicationRecord
   end
   
   def resolutions
-    actions.missile_attacks.map { |a| MissileAttackResolution.new(missile_attack: a) }
+    actions.missile_attacks.map { |a| Resolution.for(a) }
   end
   
   private

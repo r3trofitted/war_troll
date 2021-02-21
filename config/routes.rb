@@ -4,6 +4,6 @@ Rails.application.routes.draw do
     post "continue", on: :member 
   end
   resources :actions, only: [] do
-    resources :missile_attack_resolutions, only: [:create], module: :actions
+    resource :resolution, only: [:create], module: :actions
   end
 end
