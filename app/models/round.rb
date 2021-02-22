@@ -19,7 +19,16 @@ class Round < ApplicationRecord
   belongs_to :combat
   has_many :participations
   has_many :combatants, through: :participations
-  has_many :actions, through: :participations
+  has_many :actions, through: :participations do
+    def of_phase
+      case proxy_association.owner.phase
+      when FIRE_RESULTS_A
+        missile_attacks.where(actionable_id: MissileAttack.where(phase: "A").select(:id))
+      else
+        none
+      end
+    end
+  end
   
   enum phase: PHASES, _default: SETUP, _prefix: :at_phase
   
@@ -30,7 +39,7 @@ class Round < ApplicationRecord
   end
   
   def resolutions
-    actions.missile_attacks.map { |a| Resolution.for(a) }
+    actions.of_phase.map { |a| Resolution.for(a) }
   end
   
   private
