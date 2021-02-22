@@ -1,8 +1,4 @@
 en:
-  helpers:
-    submit:
-      resolution:
-        create: "Resolve"
   phases:
     spell: "Spell"
     spell_results: "Spell Results"
@@ -22,13 +18,14 @@ en:
       next_phase: "Next phase"
       combatants: "Combatants"
   actions:
+    resolutions:
+      resolve: "Resolve"
+      missile_attack:
+        attack_roll: "%{combatant}'s attack roll"
+        result: "%{combatant} inflicts %{result}"
+        application: "%{target} has %{hits} hits left"
     actionables:
       missile_attack:
         notice: "%{combatant} makes a missile attack (%{weapon})"
       spell_preparation:
         notice: "%{combatant} prepares a spell (%{spell})"
-  resolutions:
-    missile_attack:
-      attack_roll: "%{combatant}'s attack roll"
-      result: "%{combatant} inflicts %{result}"
-      application: "%{target} has %{hits} hits left"

@@ -1,0 +1,10 @@
+<% if action.unresolved? %>
+  <%= form_with model: action, scope: :resolution, url: action_resolution_path(action), method: :post do |f| %>
+    <%= f.label :roll, t(".attack_roll", combatant: f.object.combatant_name) %>
+    <%= f.text_field :roll %>
+    <%= f.submit t("actions.resolutions.resolve") %>
+  <% end %>
+<% else %>
+  <%= t ".result", combatant: action.combatant_name, result: action.actionable.result %>
+  <%= t ".application", target: action.actionable.target.name, hits: action.actionable.target.combatable.hits %>
+<% end %>
