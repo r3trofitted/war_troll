@@ -20,8 +20,12 @@ class Round < ApplicationRecord
   has_many :participations
   has_many :combatants, through: :participations
   has_many :actions, through: :participations do
-    def of_phase
-      case proxy_association.owner.phase
+    def current
+      at_phase proxy_association.owner.phase
+    end
+    
+    def at_phase(phase)
+      case phase
       when SPELL_RESULTS
         spell_preparations
       when FIRE_RESULTS_A

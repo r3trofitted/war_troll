@@ -5,7 +5,7 @@
   </header>
   <main>
     <section id="phase-controls">
-      <%= render partial: "actions/resolution", collection: @round.actions.of_phase, as: :action %>
+      <%= render partial: "actions/resolution", collection: @round.actions.current, as: :action %>
       <%= button_to t(".next_phase"), continue_round_path(@round), form_class: "next-phase" %>
     </section>
     
