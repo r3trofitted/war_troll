@@ -1,0 +1,24 @@
+spell_preparation_during_completed_round:
+  participation: balor_in_completed_round
+  actionable: sleep_v_preparation (SpellPreparation)
+  activity: 90
+missile_attack_a_during_completed_round:
+  participation: auberc_in_completed_round
+  actionable: missile_attack_a_vs_crocodile_preparation (MissileAttack)
+  activity: 50
+# maneuvre_during_completed_round:
+#   participation: xx_in_completed_round
+#   actionable:
+# movement_during_completed_round:
+#   participation: xx_in_completed_round
+#   actionable:
+missile_attack_b_during_completed_round:
+  participation: auberc_in_completed_round
+  actionable: missile_attack_b_vs_crocodile_preparation (MissileAttack)
+  activity: 50
+# first_melee_attack_during_completed_round:
+#   participation: xx_in_completed_round
+#   actionable:
+# second_melee_attack_during_completed_round:
+#   participation: xx_in_completed_round
+#   actionable:

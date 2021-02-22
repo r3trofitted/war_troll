@@ -1,0 +1,8 @@
+missile_attack_a_vs_crocodile_preparation:
+  target: crocodile_1 (Combatant)
+  weapon: "spear"
+  phase: "A"
+missile_attack_b_vs_crocodile_preparation:
+  target: crocodile_1 (Combatant)
+  weapon: "throwing knife"
+  phase: "B"

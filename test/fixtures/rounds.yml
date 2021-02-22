@@ -2,3 +2,7 @@ auberc_and_balor_vs_crocodile_round_one:
   combat: auberc_and_balor_vs_crocodile
   number: 1
   phase: :spell
+completed_round:
+  combat: auberc_and_balor_vs_crocodile
+  number: 2
+  phase: :final_orientation

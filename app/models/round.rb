@@ -22,8 +22,12 @@ class Round < ApplicationRecord
   has_many :actions, through: :participations do
     def of_phase
       case proxy_association.owner.phase
+      when SPELL_RESULTS
+        spell_preparations
       when FIRE_RESULTS_A
         missile_attacks.where(actionable_id: MissileAttack.where(phase: "A").select(:id))
+      when FIRE_RESULTS_B
+        missile_attacks.where(actionable_id: MissileAttack.where(phase: "B").select(:id))
       else
         none
       end
