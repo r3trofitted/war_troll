@@ -1,6 +1,6 @@
 class Round < ApplicationRecord
   FinishedRoundError = Class.new(StandardError)
-    
+  
   PHASES = [
     SETUP             = "setup",
     SPELL             = "spell",
@@ -19,24 +19,7 @@ class Round < ApplicationRecord
   belongs_to :combat
   has_many :participations
   has_many :combatants, through: :participations
-  has_many :actions, through: :participations do
-    def current
-      at_phase proxy_association.owner.phase
-    end
-    
-    def at_phase(phase)
-      case phase
-      when SPELL_RESULTS
-        spell_preparations
-      when FIRE_RESULTS_A
-        missile_attacks.where(actionable_id: MissileAttack.where(phase: "A").select(:id))
-      when FIRE_RESULTS_B
-        missile_attacks.where(actionable_id: MissileAttack.where(phase: "B").select(:id))
-      else
-        none
-      end
-    end
-  end
+  has_many :actions, -> { extending ActionsPhasesExtension }, through: :participations
   
   enum phase: PHASES, _default: SETUP, _prefix: :at_phase
   
@@ -58,5 +41,24 @@ class Round < ApplicationRecord
   
   def finished?
     at_phase_final_orientation?
+  end
+  
+  module ActionsPhasesExtension
+    def current
+      at_phase proxy_association.owner.phase
+    end
+  
+    def at_phase(phase)
+      case phase
+      when SPELL_RESULTS
+        spell_preparations
+      when FIRE_RESULTS_A
+        missile_attacks.where(actionable_id: MissileAttack.where(phase: "A").select(:id))
+      when FIRE_RESULTS_B
+        missile_attacks.where(actionable_id: MissileAttack.where(phase: "B").select(:id))
+      else
+        none
+      end
+    end
   end
 end
