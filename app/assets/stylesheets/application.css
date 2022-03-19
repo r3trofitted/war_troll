@@ -1,1 +1,32 @@
 /* Application styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-dark: #46494C;
+  --clr-light: #fff;
+
+  --clr-primary-100: #DCDCDD;
+  --clr-primary-300: #C5C3C6;
+  --clr-primary-500: #4C5C68;
+
+  --clr-contrast-100: #1985A1;
+  --clr-contrast-300: #17758C;
+
+  --ff-heading: 'Montserrat', sans-serif;
+  --ff-subheading: 'Rakkas', cursive;
+  --ff-body: 'Cormorant Garamond', serif;
+}
+
+body {
+  margin: 0;
+  background: var(--clr-light);
+
+  font-family: var(--ff-body);
+  color: var(--clr-dark);
+}
+
+turbo-cable-stream-source {
+  display: none;
+}

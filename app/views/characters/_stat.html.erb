@@ -1,0 +1,31 @@
+<section class="stat">
+  <h1><%= t ".name_html", name: stat.name, abbr: stat.abbr %></h1>
+  <label>
+    <span><%= t ".temporary_value" %></span>
+    <input type="text" value="<%= stat.temporary_value %>" readonly="readonly">
+  </label>
+  <label>
+    <span><%= t ".potential_value" %></span>
+    <input type="text" value="<%= stat.potential_value %>" readonly="readonly">
+  </label>
+  <% if stat.respond_to? :development_points %>
+    <label class="dev-points">
+      <span><%= t ".development_points" %></span>
+      <input type="text" value="<%= stat.development_points %>" readonly="readonly">
+    </label>
+  <% else %>
+    <b></b>
+  <% end %>
+  <label class="bonus">
+    <span><%= t ".normal_bonus" %></span>
+    <input type="text" value="<%= stat.normal_bonus %>" readonly="readonly">
+  </label>
+  <label class="bonus">
+    <span><%= t ".race_bonus" %></span>
+    <input type="text" value="<%= stat.bonus_modification %>" readonly="readonly">
+  </label>
+  <label class="total bonus">
+    <span><%= t ".total_bonus" %></span>
+    <input type="text" value="<%= stat.total_bonus %>" readonly="readonly">
+  </label>
+</section>

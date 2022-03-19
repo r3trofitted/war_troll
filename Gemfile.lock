@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/rails/rails-dom-testing.git
+  revision: 267b117df9dc4d60668c398fdccdb7b7dff0ffb6
+  ref: 267b117df9d
+  specs:
+    rails-dom-testing (2.0.3)
+      activesupport (>= 5.0.0)
+      nokogiri (>= 1.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -162,9 +171,6 @@ GEM
       activesupport (= 7.0.2.3)
       bundler (>= 1.15.0)
       railties (= 7.0.2.3)
-    rails-dom-testing (2.0.3)
-      activesupport (>= 4.2.0)
-      nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
     railties (7.0.2.3)
@@ -223,6 +229,7 @@ DEPENDENCIES
   propshaft
   puma (~> 5.0)
   rails (~> 7.0.2)
+  rails-dom-testing (~> 2.0)!
   redis (~> 4.0)
   selenium-webdriver
   turbo-rails (~> 1.0)

@@ -1,33 +1,64 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   "true": "foo"
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      character/genders:
+        male: "Male"
+        female: "Female"
+      character/paces:
+        walk: "Walk"
+        fast_walk: "Fast walk/Jog"
+        run: "Run"
+        sprint: "Sprint/Fast run"
+        fast_sprint: "Fast sprint"
+        dash: "Dash"
+      character:
+        age: "Age"
+        base_movement_rate: "Base movement rate"
+        experience_points: "Experience points"
+        eyes_color: "Eyes color"
+        gender: "Gender"
+        hair_color: "Hair color"
+        height: "Height"
+        level: "Level"
+        maximum_base_hit_point_total: "Maximum base hit points"
+        maximum_pace: "Maximum pace"
+        name: "Name"
+        profession: "Profession"
+        race: "Race"
+        realm_of_power: "Realm of Power"
+        recovery_multiplier: "Recovery"
+        soul_departure: "Soul departure"
+        stat_deterioration: "Deterioration"
+        stats: "Stats"
+        type_of_hit_dice: "Type of hit dice"
+        weight: "Weight"
+  characters:
+    show:
+      appearance: "Appearance"
+      armor: "Armor"
+      bonus_vs_melee: "Bonus vs melee"
+      bonus_vs_projectiles: "Bonus vs projectiles"
+      defensive_bonus: "Defensive bonus"
+      development_cost: "Development cost"
+      health: "Health"
+      languages: "Languages"
+      miscellaneous_bonus: "Special bonus"
+      movement: "Movement"
+      object_bonus: "Object bonus"
+      portrait: "Portrait"
+      quickness_bonus: "Quickness bonus"
+      race_and_profession: "Race & profession"
+      resistance_rolls: "Resistance rolls"
+      shield: "Shield"
+      skill_areas: "Skill areas"
+      skills: "Skills"
+      stats: "Stats"
+      total_bonus: "Total bonus"
+    stat:
+      development_points: "Development points"
+      name_html: "%{name} <abbr>(%{abbr})</abbr>"
+      normal_bonus: "Normal bonus"
+      potential_value: "Potential value"
+      race_bonus: "Race bonus"
+      temporary_value: "Valeur temporaire"
+      total_bonus: "Bonus total"

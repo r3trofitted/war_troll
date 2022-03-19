@@ -1,0 +1,42 @@
+<%= tag.section class: class_names("skill", "developed": skill.ranks.to_i.positive?) do %>
+  <h1><%= skill.name %></h1>
+  <label class="dev-cost">
+    <span>Coût de développement</span>
+    <input type="text" value="<%= skill.dev_cost %>">
+  </label>
+  <fieldset class="skill-ranks">
+    <%= skill_rank_checkboxes(skill) %>
+  </fieldset>
+  <label class="bonus">
+    <span>Bonus de degrés de maîtrise</span>
+    <input type="text" value="<%= skill.dm_bonus %>">
+  </label>
+  <label class="bonus">
+    <span>Bonus de caractéristique</span>
+    <input type="text" value="<%= skill.carac_bonus %>">
+  </label>
+  <label class="bonus">
+    <span>Bonus de niveau</span>
+    <input type="text" value="<%= skill.level_bonus %>" placeholder="niv.">
+  </label>
+  <label class="bonus">
+    <span>Bonus d'object</span>
+    <input type="text" value="<%= skill.object_bonus %>" placeholder="obj.">
+  </label>
+  <label class="bonus">
+    <span>Bonus divers</span>
+    <input type="text" value="<%= skill.misc_3_bonus %>" placeholder="sp.">
+  </label>
+  <label class="bonus">
+    <span>Bonus divers</span>
+    <input type="text" value="<%= skill.misc_2_bonus %>" placeholder="sp.">
+  </label>
+  <label class="bonus">
+    <span>Bonus divers</span>
+    <input type="text" value="<%= skill.misc_1_bonus %>" placeholder="sp.">
+  </label>
+  <label class="bonus total">
+    <span>Bonus total</span>
+    <input type="text" value="<%= skill.total_bonus %>">
+  </label>
+<% end %>

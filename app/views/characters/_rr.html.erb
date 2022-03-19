@@ -1,0 +1,19 @@
+<section class="rr">
+  <h1><%= rr.name %></h1>
+  <label class="bonus">
+    <span>Bonus de caractéristique</span>
+    <input type="text" value="<%= rr.carac_bonus %>" placeholder="<%= rr.stat_name %>">
+  </label>
+  <label class="bonus">
+    <span>Bonus de race</span>
+    <input type="text" placeholder="race" value="<%= rr.race_bonus %>">
+  </label>
+  <label class="bonus">
+    <span>Bonus divers</span>
+    <input type="text" placeholder="sp." value="<%= rr.sp_bonus %>">
+  </label>
+  <label class="bonus total">
+    <span>Bonus total</span>
+    <input type="text" value="<%= rr.total_bonus %>">
+  </label>
+</section>

@@ -53,6 +53,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "rails-dom-testing", "~> 2.0", github: "rails/rails-dom-testing", ref: "267b117df9d" # this version adds the `:strict` option in `#assert_dom_equal`
   gem "selenium-webdriver"
   gem "webdrivers"
 end

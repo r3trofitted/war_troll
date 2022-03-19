@@ -1,0 +1,286 @@
+<article class="character">
+  <header>
+    <h1 class="title">
+      <%= @character.name %>
+    </h1>
+  </header>
+  <%= form_with model: @character, builder: CharacterFormBuilder do |f| %>
+    <fieldset id="race-profession">
+      <legend>
+        <%= t ".race_and_profession" %>
+      </legend>
+      <%= f.text_field :race, readonly: true, value: "Human" %><%# FIXME: slime! %>
+      <%= f.text_field :profession, readonly: true, value: "Fighter" %><%# FIXME: slime! %>
+      <%= f.text_field :realm_of_power, readonly: true %>
+      <%= f.text_field :level, readonly: true %>
+      <%= f.text_field :experience_points, readonly: true %>
+    </fieldset>
+    <fieldset id="appearance">
+      <legend>
+        <%= t ".appearance" %>
+      </legend>
+      <%= f.text_field :height, value: "1,78 m" %><%# FIXME: slime! %>
+      <%= f.text_field :weight, value: "77 kg" %><%# FIXME: slime! %>
+      <%= f.text_field :eyes_color %>
+      <%= f.text_field :hair_color %>
+      <%= f.text_field :age %>
+      <%= f.text_field :gender, value: Character.human_attribute_name("genders.#{f.object.gender}") %>
+    </fieldset>
+    <fieldset id="portrait">
+      <legend>
+        <%= t ".portrait" %>
+      </legend>
+    </fieldset>
+    <fieldset id="hits">
+      <%= f.tracker_field :hit_points, value: "65" %><%# FIXME: slime! %>
+    </fieldset>
+    <fieldset id="power-points">
+      <%= f.tracker_field :power_points, value: "3" %><%# FIXME: slime! %>
+    </fieldset>
+    <fieldset id="stats">
+      <legend>
+        <%= t ".stats" %>
+      </legend>
+      <%= render "stat", stat: OpenStruct.new(name: "Constitution",    abbr: "Co", temporary_value: "93", potential_value: "95", development_points: "8", normal_bonus: "+10", bonus_modification: "",   total_bonus: "+10") %><%# FIXME: slime! @character.constitution %>
+      <%= render "stat", stat: OpenStruct.new(name: "Agility",         abbr: "Ag", temporary_value: "82", potential_value: "87", development_points: "8", normal_bonus: "+5",  bonus_modification: "",   total_bonus: "+5") %><%# FIXME: slime! @character.agility %>
+      <%= render "stat", stat: OpenStruct.new(name: "Self Discipline", abbr: "Sd", temporary_value: "62", potential_value: "62", development_points: "6", normal_bonus: "0",   bonus_modification: "+5", total_bonus: "+5") %><%# FIXME: slime! @character.self_discipline %>
+      <%= render "stat", stat: OpenStruct.new(name: "Memory",          abbr: "Me", temporary_value: "54", potential_value: "62", development_points: "6", normal_bonus: "0",   bonus_modification: "",   total_bonus: "0") %><%# FIXME: slime! @character.memory %>
+      <%= render "stat", stat: OpenStruct.new(name: "Reasoning",       abbr: "Re", temporary_value: "71", potential_value: "71", development_points: "6", normal_bonus: "0",   bonus_modification: "",   total_bonus: "0") %><%# FIXME: slime! @character.reasoning %>
+      <%= render "stat", stat: OpenStruct.new(name: "Strength",        abbr: "St", temporary_value: "97", potential_value: "97", normal_bonus: "+15", bonus_modification: "+5", total_bonus: "+20") %><%# FIXME: slime! @character.strength %>
+      <%= render "stat", stat: OpenStruct.new(name: "Quickness",       abbr: "Qu", temporary_value: "92", potential_value: "92", normal_bonus: "+10", bonus_modification: "",   total_bonus: "+10") %><%# FIXME: slime! @character.quickness %>
+      <%= render "stat", stat: OpenStruct.new(name: "Presence",        abbr: "Pr", temporary_value: "42", potential_value: "56", normal_bonus: "0",  bonus_modification: "",    total_bonus: "0") %><%# FIXME: slime! @character.presence %>
+      <%= render "stat", stat: OpenStruct.new(name: "Empathy",         abbr: "Em", temporary_value: "80", potential_value: "82", normal_bonus: "+5", bonus_modification: "",    total_bonus: "+5") %><%# FIXME: slime! @character.empathy %>
+      <%= render "stat", stat: OpenStruct.new(name: "Intution",        abbr: "In", temporary_value: "58", potential_value: "74", normal_bonus: "0",  bonus_modification: "",    total_bonus: "0") %><%# FIXME: slime! @character.intuition %>
+    </fieldset>
+    <fieldset id="movement">
+      <legend>
+        <%= t ".movement" %>
+      </legend>
+      <%= f.text_field :base_movement_rate, readonly: true %>
+      <%= f.text_field :maximum_pace, readonly: true %>
+    </fieldset>
+    <fieldset id="db">
+      <%# FIXME: this whole section is slimed! %>
+      <legend>
+        <%= t ".defensive_bonus" %>
+      </legend>
+      <section class="db">
+        <h1><%= t ".defensive_bonus" %></h1>
+        <label class="bonus">
+          <span><%= "Normal bonus" %></span>
+          <input type="text" value="+10" placeholder="Qu" readonly>
+        </label>
+        <label class="bonus">
+          <span><%= t ".object_bonus" %></span>
+          <input type="text" placeholder="obj." readonly>
+        </label>
+        <label class="bonus">
+          <span><%= t ".miscellaneous_bonus" %></span>
+          <input type="text" placeholder="sp." readonly>
+        </label>
+        <label class="bonus total">
+          <span><%= t ".total_bonus" %></span>
+          <input type="text" value="+10" readonly>
+        </label>
+      </section>
+    </fieldset>
+    <fieldset id="armor">
+      <%# FIXME: this whole section is slimed! %>
+      <legend>
+        <%= t ".armor" %>
+      </legend>
+      <%= f.text_field :armor_type, readonly: true, value: "TA17" %>
+    </fieldset>
+    <fieldset id="shield">
+      <%# FIXME: this whole section is slimed! %>
+      <legend>
+        <%= t ".shield" %>
+      </legend>
+      <label class="bonus">
+        <span><%= t ".bonus_vs_melee" %></span>
+        <input type="text" value="+20">
+      </label>
+      <label class="bonus">
+        <span><%= t ".bonus_vs_projectiles" %></span>
+        <input type="text" value="+20">
+      </label>
+    </fieldset>
+    <fieldset id="health">
+      <legend>
+        <%= t ".health" %>
+      </legend>
+      <%= f.text_field :soul_departure, readonly: true, value: "12" %><%# FIXME: slime! %>
+      <%= f.text_field :stat_deterioration, readonly: true, value: "0" %><%# FIXME: slime! %>
+      <%= f.text_field :recovery_multiplier, readonly: true, value: "×1" %><%# FIXME: slime! %>
+      <%= f.text_field :type_of_hit_dice, readonly: true, value: "d8" %><%# FIXME: slime! %>
+      <%= f.text_field :maximum_base_hit_point_total, readonly: true, value: "120" %><%# FIXME: slime! %>
+    </fieldset>
+    <fieldset id="resistance-rolls">
+      <legend>
+        <%= t ".resistance_rolls" %>
+      </legend>
+      <%= render "rr", rr: OpenStruct.new(name: "Poison", stat_name: "Co", total_bonus: "+10") %><%# FIXME: slime! %>
+      <%= render "rr", rr: OpenStruct.new(name: "Disease", stat_name: "Co", total_bonus: "+10") %><%# FIXME: slime! %>
+      <%= render "rr", rr: OpenStruct.new(name: "Mentalism", stat_name: "Pr", total_bonus: "0") %><%# FIXME: slime! %>
+      <%= render "rr", rr: OpenStruct.new(name: "Essence", stat_name: "Em", total_bonus: "0") %><%# FIXME: slime! %>
+      <%= render "rr", rr: OpenStruct.new(name: "Channelling", stat_name: "It", total_bonus: "0") %><%# FIXME: slime! %>
+    </fieldset>
+    <fieldset id="skills">
+      <legend>
+        <%= t ".skills" %>
+      </legend>
+      <section class="skills-category">
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Soft leather", special?: true) %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Hard leather", special?: true) %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Chain", special?: true) %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Plate", special?: true) %>
+      </section>
+      <section class="skills-category">
+        <%= render "skill_form" %>
+      </section>
+      <section class="skills-category">
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Climbing") %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Swimming") %>
+        <%= render "skill_form" %>
+      </section>
+      <section class="skills-category">
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Disarm traps") %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Pick locks") %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Ambush", special?: true) %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Stalk & Hide") %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Perception") %>
+      </section>
+      <section class="skills-category">
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Staves & Wands") %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Runes") %>
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Channeling") %>
+        <%= render "skill_form" %>
+      </section>
+      <section class="skills-category">
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Adrenal defense") %>
+        <%= render "skill_form" %>
+      </section>
+      <section class="skills-category">
+        <%= render "skill_stub", skill: OpenStruct.new(name: "Body development", special?: true) %>
+      </section>
+    </fieldset>
+    <fieldset id="skill-areas">
+      <%# FIXME: this whole section is slimed! %>
+      <legend>
+        <%= t ".skill_areas" %>
+      </legend>
+      <section class="skills-category">
+        <section class="skill-area">
+          <h1>Bows</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="5" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>One-handed crushing</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="2/7" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>One-handed edged</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="2/5" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>Pole arms</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="2/7" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>Thrown</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="2/7" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>Two-handed</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="1/5" readonly="readonly">
+          </label>
+        </section>
+      </section>
+      <section class="skills-category">
+        <section class="skill-area">
+          <h1>Riding</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="2/6" readonly="readonly">
+          </label>
+        </section>
+      </section>
+      <section class="skills-category">
+        <section class="skill-area">
+          <h1>Directed spells</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="20" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>Spell lists</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="20" readonly="readonly">
+          </label>
+        </section>
+      </section>
+      <section class="skills-category">
+        <section class="skill-area">
+          <h1>Adrenal moves</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="20" readonly="readonly">
+          </label>
+        </section>
+        <section class="skill-area">
+          <h1>Martial arts</h1>
+          <label class="dev-cost">
+            <span><%= t ".development_cost" %></span>
+            <input type="text" value="3/7" readonly="readonly">
+          </label>
+        </section>
+      </section>
+    </fieldset>
+    <fieldset id="languages">
+      <legend>
+        <%= t ".languages" %>
+      </legend>
+      <section class="language">
+        <h1>Common</h1>
+        <label class="bonus">
+          <span>Spoken</span>
+          <input type="text" value="6" readonly="readonly">
+        </label>
+        <label class="bonus">
+          <span>Written</span>
+          <input type="text" value="6" readonly="readonly">
+        </label>
+      </section>
+      <section class="language">
+        <h1>Human</h1>
+        <label class="bonus">
+          <span>Spoken</span>
+          <input type="text" value="7" readonly="readonly">
+        </label>
+        <label class="bonus">
+          <span>Written</span>
+          <input type="text" value="6" readonly="readonly">
+        </label>
+      </section>
+    </fieldset>
+  <% end %>
+</article>

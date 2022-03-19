@@ -1,0 +1,327 @@
+.character {
+  margin: 0 auto;
+  line-height: 1.4;
+}
+
+.character input {
+  font: inherit;
+  color: inherit;
+  text-align: center;
+}
+
+.character input[type='text'] {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: inherit;
+  font-size: 16px;
+}
+
+.character .total {
+  font-weight: bold;
+}
+
+.character header {
+  text-align: center;
+  position: relative;
+  padding: 2em 0;
+}
+
+.character .title {
+  font-size: 3rem;
+  font-family: var(--ff-heading);
+  line-height: 1;
+  margin: 0;
+  position: relative;
+  display: inline-block;
+}
+
+.character .title::before,
+    .character .title::after {
+  content: "";
+  height: 100%;
+  display: block;
+  position: absolute;
+}
+
+.character .title::before {
+  background-color: var(--clr-light);
+  z-index: -1;
+  left: -1ch;
+  right: -1ch;
+}
+
+.character .title::after {
+  background-color: var(--clr-dark);
+  width: 100vw;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  z-index: -2;
+}
+
+.character form {
+  justify-content: center;
+  display: grid;
+  --cell-width: 5ch;
+  grid-template-columns: 22.5%;
+  grid-template-rows: repeat(22, fit-content(1em));
+  grid-template-areas:
+    "rp hi pp po"
+    "rp hi pp po"
+    "rp st st po"
+    "rp st st po"
+    "rp st st po"
+    "rp st st po"
+    "ap st st po"
+    "ap st st po"
+    "ap st st po"
+    "ap st st po"
+    "ap st st po"
+    "ap st st po"
+    "ap st st po"
+    "he rr sh mv"
+    "he rr sh mv"
+    "he rr sh mv"
+    "he rr sh mv"
+    "he rr db at"
+    "he rr db at"
+    "sk sk sk la"
+    "sk sk sk la"
+    "sk sk sk sa";
+  gap: 0.5em;
+}
+
+.character #race-profession {
+  grid-area: rp;
+}
+
+.character #appearance {
+  grid-area: ap;
+}
+
+.character #hits {
+  grid-area: hi;
+}
+
+.character #stats {
+  grid-area: st;
+}
+
+.character #portrait {
+  grid-area: po;
+}
+
+.character #db {
+  grid-area: db;
+}
+
+.character #power-points {
+  grid-area: pp;
+}
+
+.character #movement {
+  grid-area: mv;
+}
+
+.character #resistance-rolls {
+  grid-area: rr;
+}
+
+.character #armor {
+  grid-area: at;
+}
+
+.character #shield {
+  grid-area: sh;
+}
+
+.character #skills {
+  grid-area: sk;
+}
+
+.character #skill-areas {
+  grid-area: sa;
+}
+
+.character #languages {
+  grid-area: la;
+}
+
+.character #health {
+  grid-area: he;
+}
+
+.character label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.character label.info input {
+  width: 30%;
+}
+
+.character label.bonus input {
+  width: var(--cell-width);
+}
+
+.character label.bonus input.large-value {
+  width: calc(1.5 * var(--cell-width));
+}
+
+.character .stat abbr {
+  float: right;
+  font-weight: normal;
+}
+
+.character .skill.developed {
+  color: var(--clr-contrast-300);
+}
+
+.character .dev-cost {
+  border-bottom: 1px solid var(--clr-primary-300);
+}
+
+.character .skill-ranks {
+  padding: 0;
+  border: 0;
+  display: inline;
+  width: auto;
+  white-space: nowrap;
+}
+
+.character .skills-category {
+  width: auto;
+  border: none;
+  background-color: var(--clr-light);
+  margin: -1px 0 -1px -1px;
+  padding: 0.25em;
+}
+
+.character .skills-category:nth-child(odd) {
+  background-color: var(--clr-primary-100);
+}
+
+.character .skill-rank {
+  display: inline-block;
+  vertical-align: middle;
+  margin: auto 0.075em auto 0;
+}
+
+.character .skill-rank:nth-of-type(10), .character .skill-rank:nth-of-type(20) {
+  margin-right: 0.5em;
+}
+
+.character .skill-rank-input {
+  display: grid;
+  grid-template-areas: "checkbox";
+}
+
+.character .skill-rank-input > * {
+  grid-area: checkbox;
+}
+
+.character .skill-rank-input input {
+  margin: 0;
+  opacity: 0;
+  width: 0.65em;
+  height: 0.65em;
+}
+
+.character .skill-rank-input span {
+  width: 0.65em;
+  height: 0.65em;
+  border: 0.065em solid currentColor;
+  border-radius: 0.1em;
+}
+
+.character .skill-rank-input input:checked + span {
+  background-color: currentColor;
+}
+
+.character .skill-rank.special .skill-rank-input span {
+  border-radius: 40%;
+}
+
+.character #race-profession, .character #appearance, .character #stats, .character #portrait, .character #db, .character #movement, .character #resistance-rolls, .character #armor, .character #shield, .character #skills, .character #skill-areas, .character #languages, .character #health {
+  padding: 0.25em;
+}
+
+.character #race-profession legend, .character #appearance legend, .character #stats legend, .character #portrait legend, .character #db legend, .character #movement legend, .character #resistance-rolls legend, .character #armor legend, .character #shield legend, .character #skills legend, .character #skill-areas legend, .character #languages legend, .character #health legend {
+  font-family: var(--ff-subheading);
+}
+
+.character #hits, .character #power-points {
+  border: none;
+  font-family: var(--ff-subheading);
+}
+
+.character #hits label, .character #power-points label {
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.character #hits input, .character #power-points input {
+  width: calc(0.75 * var(--cell-width));
+  margin-left: calc(0.25 * var(--cell-width));
+  border: 1px solid var(--clr-dark);
+  font-size: 1.25rem;
+  border-radius: 20%;
+}
+
+.character .calculated-bonus, .character .stat, .character .skill, .character .skill-area, .character .language, .character .rr, .character .db {
+  display: grid;
+  gap: 0.25em;
+  grid-auto-flow: column;
+  grid-auto-columns: fit-content(var(--cell-width));
+  grid-template-columns: 1fr;
+}
+
+.character .calculated-bonus > h1, .character .stat > h1, .character .skill > h1, .character .skill-area > h1, .character .language > h1, .character .rr > h1, .character .db > h1 {
+  margin: 0;
+  display: inline;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: normal;
+}
+
+.character .calculated-bonus > b:empty, .character .stat > b:empty, .character .skill > b:empty, .character .skill-area > b:empty, .character .language > b:empty, .character .rr > b:empty, .character .db > b:empty {
+  width: var(--cell-width);
+}
+
+.character .calculated-bonus > label, .character .stat > label, .character .skill > label, .character .skill-area > label, .character .language > label, .character .rr > label, .character .db > label {
+  display: inline;
+  text-align: center;
+}
+
+.character .calculated-bonus > label span, .character .stat > label span, .character .skill > label span, .character .skill-area > label span, .character .language > label span, .character .rr > label span, .character .db > label span, .character .calculated-bonus > label dt, .character .stat > label dt, .character .skill > label dt, .character .skill-area > label dt, .character .language > label dt, .character .rr > label dt, .character .db > label dt {
+  display: none;
+}
+
+.character .calculated-bonus > label dd, .character .stat > label dd, .character .skill > label dd, .character .skill-area > label dd, .character .language > label dd, .character .rr > label dd, .character .db > label dd {
+  margin: auto;
+}
+
+.character .calculated-bonus > label input, .character .stat > label input, .character .skill > label input, .character .skill-area > label input, .character .language > label input, .character .rr > label input, .character .db > label input {
+  width: 100%;
+}
+
+.character .calculated-bonus > label.total, .character .stat > label.total, .character .skill > label.total, .character .skill-area > label.total, .character .language > label.total, .character .rr > label.total, .character .db > label.total {
+  border-bottom: 1px solid var(--clr-primary-300);
+}
+
+.character .calculated-bonus > label.dev-points, .character .stat > label.dev-points, .character .skill > label.dev-points, .character .skill-area > label.dev-points, .character .language > label.dev-points, .character .rr > label.dev-points, .character .db > label.dev-points {
+  background-color: var(--clr-primary-100);
+  border-bottom: 1px solid var(--clr-light);
+}
+
+.character .calculated-bonus > label.points, .character .stat > label.points, .character .skill > label.points, .character .skill-area > label.points, .character .language > label.points, .character .rr > label.points, .character .db > label.points {
+  border-radius: 50%;
+  border: 1px solid var(--clr-primary-300);
+}
+
+.character .calculated-bonus .bonus input::placeholder, .character .stat .bonus input::placeholder, .character .skill .bonus input::placeholder, .character .skill-area .bonus input::placeholder, .character .language .bonus input::placeholder, .character .rr .bonus input::placeholder, .character .db .bonus input::placeholder {
+  color: var(--clr-primary-300);
+  font-size: 0.8em;
+}
