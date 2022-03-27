@@ -39,7 +39,7 @@ module Stat
     end
   
     def normal_bonus
-      STAT_BONUS_TABLE.fetch temporary_value
+      Bonus.new STAT_BONUS_TABLE.fetch(temporary_value)
     end
   
     def power_points

@@ -5,9 +5,8 @@ class DefensiveBonus
     @bonus = bonus
   end
 
-  # FIXME: this method should not do 2 things at once, computing the total bonus **AND** formatting it
   def normal_bonus
-    '%+d' % @bonus
+    @bonus
   end
 
   def object_bonus
