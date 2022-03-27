@@ -1,6 +1,6 @@
 module Races
   Human = Race.new do
-    @stat_bonus_modifiers = StatsStruct.new(
+    @stat_bonus_modifiers = Stat::Struct.new(
       constitution: 0,
       agility: 0,
       self_discipline: 5,

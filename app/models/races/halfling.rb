@@ -1,6 +1,6 @@
 module Races
   Halfling = Race.new do
-    @stat_bonus_modifiers = StatsStruct.new(
+    @stat_bonus_modifiers = Stat::Struct.new(
       constitution: 15,
       agility: 15,
       self_discpline: -10,

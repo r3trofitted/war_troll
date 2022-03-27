@@ -1,6 +1,7 @@
 en:
   activemodel:
     models:
+      defensive_bonus: "Defensive bonus"
       races/dwarf: "Dwarf"
       races/elf: "Elf"
       races/halfling: "Halfling"

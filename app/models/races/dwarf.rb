@@ -1,6 +1,6 @@
 module Races
   Dwarf = Race.new do
-    @stat_bonus_modifiers = StatsStruct.new(
+    @stat_bonus_modifiers = Stat::Struct.new(
       constitution: 15,
       agility: -5
       self_discpline: 5,

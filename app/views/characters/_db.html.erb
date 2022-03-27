@@ -1,0 +1,9 @@
+<section class="db">
+  <h1><%= db.model_name.human %></h1>
+  <%= form.fields_for db do |f| %>
+    <%= f.bonus_field :normal_bonus, placeholder: form.object.quickness.abbr, readonly: true %><%# FIXME: move the name lookup logic to the Bonus object %>
+    <%= f.bonus_field :object_bonus, placeholder: "obj.", readonly: true %>
+    <%= f.bonus_field :special_bonus, placeholder: "sp.", readonly: true %>
+    <%= f.bonus_field :total_bonus, readonly: true %>
+  <% end %>
+</section>

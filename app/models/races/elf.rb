@@ -1,6 +1,6 @@
 module Races
   Elf = Race.new do
-    @stat_bonus_modifiers = StatsStruct.new(
+    @stat_bonus_modifiers = Stat::Struct.new(
       constitution: 0,
       agility: 5,
       self_discipline: -20,

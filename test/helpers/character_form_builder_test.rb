@@ -36,4 +36,15 @@ class CharacterFormBuilderTest < ActionView::TestCase
       </label>
     HTML
   end
+  
+  test "#bonus_field wraps the input in a <label> with a <span> and adds the 'bonus' class to the label" do
+    html = @builder.bonus_field :stub, value: "+5"
+    
+    assert_dom_equal <<~HTML, html, strict: false
+      <label class="bonus" for="character_stub">
+        <span>Stub</span>
+        <input value="+5" type="text" name="character[stub]" id="character_stub">
+      </label>
+    HTML
+  end
 end

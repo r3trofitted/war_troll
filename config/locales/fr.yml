@@ -1,6 +1,7 @@
 fr:
   activemodel:
     models:
+      defensive_bonus: "Bonus défensif"
       races/dwarf: "Nain"
       races/elf: "Elfe"
       races/halfling: "Semi-homme"

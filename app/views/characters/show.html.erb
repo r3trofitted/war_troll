@@ -60,29 +60,10 @@
       <%= f.text_field :maximum_pace, readonly: true %>
     </fieldset>
     <fieldset id="db">
-      <%# FIXME: this whole section is slimed! %>
       <legend>
         <%= t ".defensive_bonus" %>
       </legend>
-      <section class="db">
-        <h1><%= t ".defensive_bonus" %></h1>
-        <label class="bonus">
-          <span><%= "Normal bonus" %></span>
-          <input type="text" value="+10" placeholder="Qu" readonly>
-        </label>
-        <label class="bonus">
-          <span><%= t ".object_bonus" %></span>
-          <input type="text" placeholder="obj." readonly>
-        </label>
-        <label class="bonus">
-          <span><%= t ".miscellaneous_bonus" %></span>
-          <input type="text" placeholder="sp." readonly>
-        </label>
-        <label class="bonus total">
-          <span><%= t ".total_bonus" %></span>
-          <input type="text" value="+10" readonly>
-        </label>
-      </section>
+      <%= render @character.db, form: f %>
     </fieldset>
     <fieldset id="armor">
       <%# FIXME: this whole section is slimed! %>

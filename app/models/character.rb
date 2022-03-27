@@ -15,7 +15,7 @@ class Character < ApplicationRecord
     STATS = %i(constitution agility self_discipline memory reasoning strength quickness presence empathy intuition)
 
     included do
-      attribute :stats, :character_stats, default: StatsStruct.new
+      attribute :stats, :character_stats, default: Stat::Struct.new
     end
     
     def constitution; dev_stat(:constitution); end
@@ -33,14 +33,19 @@ class Character < ApplicationRecord
 
     def dev_stat(s)
       if (temporary, potential = stats[s])
-        DevelopmentStat.new temporary, potential, stat_bonus_modifiers[s], Character.human_attribute_name(s), Character.human_attribute_name("abbreviations.#{s}")
+        Stat::Development.new temporary, potential, stat_bonus_modifiers[s], Character.human_attribute_name(s), Character.human_attribute_name("abbreviations.#{s}")
       end
     end
 
     def primary_stat(s)
       if (temporary, potential = stats[s])
-        PrimaryStat.new temporary, potential, stat_bonus_modifiers[s], Character.human_attribute_name(s), Character.human_attribute_name("abbreviations.#{s}")
+        Stat::Primary.new temporary, potential, stat_bonus_modifiers[s], Character.human_attribute_name(s), Character.human_attribute_name("abbreviations.#{s}")
       end
     end
   end
+
+  def defensive_bonus
+    DefensiveBonus.new(quickness.bonus)
+  end
+  alias_method :db, :defensive_bonus
 end

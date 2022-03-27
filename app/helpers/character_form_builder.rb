@@ -10,4 +10,11 @@ class CharacterFormBuilder < ActionView::Helpers::FormBuilder
   def tracker_field(method, options = {})
     text_field method, options.merge(label_class: "tracker")
   end
+
+  def bonus_field(method, options = {})
+    label_class = ["bonus"]
+    label_class << ["total"] if method.starts_with? "total_"
+
+    text_field method, options.merge(label_class: label_class)
+  end
 end
