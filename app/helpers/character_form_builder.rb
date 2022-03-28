@@ -12,9 +12,12 @@ class CharacterFormBuilder < ActionView::Helpers::FormBuilder
   end
 
   def bonus_field(method, options = {})
-    label_class = ["bonus"]
-    label_class << ["total"] if method.starts_with? "total_"
+    kind = options.delete(:kind).to_s.inquiry
 
-    text_field method, options.merge(label_class: label_class)
+    label_class = ["bonus"]
+    label_class << ["total"] if kind.total?
+
+    placeholder = I18n.translate("helpers.bonus_field.#{kind}", default: kind) if kind.present?
+    text_field method, options.merge(label_class: label_class, placeholder: placeholder)
   end
 end

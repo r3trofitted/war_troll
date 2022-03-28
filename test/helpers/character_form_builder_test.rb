@@ -47,4 +47,32 @@ class CharacterFormBuilderTest < ActionView::TestCase
       </label>
     HTML
   end
+  
+  test "#bonus_field adds the extra CSS class 'total' according to the :kind option" do
+    concat @builder.bonus_field :stub, value: "+15", kind: :total
+    
+    assert_dom "label.bonus.total"
+  end
+  
+  test "#bonus_field adds a translated placeholder according to the :kind option" do
+    I18n.with_locale :fr do
+      concat @builder.bonus_field :stub, value: "+15", kind: :total
+      assert_dom "input[placeholder='total']"
+  
+      concat @builder.bonus_field :stub, value: "+15", kind: :object
+      assert_dom "input[placeholder='obj.']"
+      
+      concat @builder.bonus_field :stub, value: "+15", kind: :level
+      assert_dom "input[placeholder='niv.']"
+  
+      concat @builder.bonus_field :stub, value: "+15", kind: :race
+      assert_dom "input[placeholder='race']"
+  
+      concat @builder.bonus_field :stub, value: "+15", kind: :special
+      assert_dom "input[placeholder='sp.']"
+  
+      concat @builder.bonus_field :stub, value: "+15", kind: "Irrégulier"
+      assert_dom "input[placeholder='Irrégulier']"
+    end
+  end
 end

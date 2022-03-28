@@ -90,3 +90,16 @@ fr:
       race_bonus: "Bonus de race"
       temporary_value: "Valeur temporaire"
       total_bonus: "Bonus total"
+  helpers:
+    bonus_field:
+      level: "niv."
+      object: "obj."
+      race: "race"
+      special: "sp."
+      total: "total"
+    label:
+      character[defensive_bonus]:
+        normal_bonus: "Bonus normal"
+        object_bonus: "Bonus d'objet"
+        special_bonus: "Bonus spécial"
+        total_bonus: "Bonus total"
