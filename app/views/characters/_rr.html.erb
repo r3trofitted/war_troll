@@ -1,19 +1,9 @@
 <section class="rr">
-  <h1><%= rr.name %></h1>
-  <label class="bonus">
-    <span>Bonus de caractéristique</span>
-    <input type="text" value="<%= rr.carac_bonus %>" placeholder="<%= rr.stat_name %>">
-  </label>
-  <label class="bonus">
-    <span>Bonus de race</span>
-    <input type="text" placeholder="race" value="<%= rr.race_bonus %>">
-  </label>
-  <label class="bonus">
-    <span>Bonus divers</span>
-    <input type="text" placeholder="sp." value="<%= rr.sp_bonus %>">
-  </label>
-  <label class="bonus total">
-    <span>Bonus total</span>
-    <input type="text" value="<%= rr.total_bonus %>">
-  </label>
+  <h1><%= name %></h1>
+  <%= form.fields_for rr do |f| %>
+    <%= f.bonus_field :normal_bonus, kind: f.object.stat.abbr, readonly: true %>
+    <%= f.bonus_field :race_bonus, kind: :race, readonly: true %>
+    <%= f.bonus_field :special_bonus, kind: :special, readonly: true %>
+    <%= f.bonus_field :total_bonus, kind: :total, readonly: true %>
+  <% end %>
 </section>

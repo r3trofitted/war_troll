@@ -6,7 +6,7 @@ class Character < ApplicationRecord
     included do
       attribute :race, :character_race
 
-      delegate :stat_bonus_modifiers, :soul_departure, :stat_deterioration, :recovery_multiplier, :type_of_hit_dice, :maximum_base_hit_point_total,
+      delegate :stat_bonus_modifiers, :rr_bonus_modifiers, :soul_departure, :stat_deterioration, :recovery_multiplier, :type_of_hit_dice, :maximum_base_hit_point_total,
                 to: :race
     end
   end
@@ -41,6 +41,25 @@ class Character < ApplicationRecord
       if (temporary, potential = stats[s])
         Stat::Primary.new temporary, potential, stat_bonus_modifiers[s], Character.human_attribute_name(s), Character.human_attribute_name("abbreviations.#{s}")
       end
+    end
+  end
+
+  concerning :ResistanceRolls do
+    def rr_bonus_against_poison
+      ResistanceRollBonus.new constitution, rr_bonus_modifiers[:poison]
+    end
+
+    def rr_bonus_against_disease
+      ResistanceRollBonus.new constitution, rr_bonus_modifiers[:disease]
+    end
+    def rr_bonus_against_mentalism
+      ResistanceRollBonus.new presence, rr_bonus_modifiers[:mentalism]
+    end
+    def rr_bonus_against_essence
+      ResistanceRollBonus.new empathy, rr_bonus_modifiers[:essence]
+    end
+    def rr_bonus_against_channeling
+      ResistanceRollBonus.new intuition, rr_bonus_modifiers[:channeling]
     end
   end
 

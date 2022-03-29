@@ -7,4 +7,8 @@ class Race < Module
   def stat_bonus_modifiers
     @stat_bonus_modifiers ||= Stat::Struct.with_default(0)
   end
+
+  def rr_bonus_modifiers
+    @rr_bonus_modifiers ||= {} # TODO: dedicated struct?
+  end
 end

@@ -100,11 +100,11 @@
       <legend>
         <%= t ".resistance_rolls" %>
       </legend>
-      <%= render "rr", rr: OpenStruct.new(name: "Poison", stat_name: "Co", total_bonus: "+10") %><%# FIXME: slime! %>
-      <%= render "rr", rr: OpenStruct.new(name: "Disease", stat_name: "Co", total_bonus: "+10") %><%# FIXME: slime! %>
-      <%= render "rr", rr: OpenStruct.new(name: "Mentalism", stat_name: "Pr", total_bonus: "0") %><%# FIXME: slime! %>
-      <%= render "rr", rr: OpenStruct.new(name: "Essence", stat_name: "Em", total_bonus: "0") %><%# FIXME: slime! %>
-      <%= render "rr", rr: OpenStruct.new(name: "Channelling", stat_name: "It", total_bonus: "0") %><%# FIXME: slime! %>
+      <%= render @character.rr_bonus_against_poison, name: t(".rr_against_poison"), form: f %>
+      <%= render @character.rr_bonus_against_disease, name: t(".rr_against_disease"), form: f %>
+      <%= render @character.rr_bonus_against_mentalism, name: t(".rr_against_mentalism"), form: f %>
+      <%= render @character.rr_bonus_against_essence, name: t(".rr_against_essence"), form: f %>
+      <%= render @character.rr_bonus_against_channeling, name: t(".rr_against_channeling"), form: f %>
     </fieldset>
     <fieldset id="skills">
       <legend>

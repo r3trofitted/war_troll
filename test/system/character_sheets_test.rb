@@ -38,7 +38,55 @@ class CharacterSheetsTest < ApplicationSystemTestCase
     # TODO: Hits points
     # TODO: Power points
     # TODO: Stats
-    # TODO: Resistance Rolls
+
+    within_fieldset "Resistance rolls" do
+      within "section.rr:nth-of-type(1)" do
+        assert_selector "h1", text: "Poison"
+        with_options readonly: true do
+          assert_field "Normal bonus", with: "+10", placeholder: "Co"
+          assert_field "Race bonus", with: nil, placeholder: "race"
+          assert_field "Special bonus", with: nil, placeholder: "sp."
+          assert_field "Total bonus", with: "+10"
+        end
+      end
+      
+      within "section.rr:nth-of-type(2)" do
+        assert_selector "h1", text: "Disease"
+        with_options readonly: true do
+          assert_field "Normal bonus", with: "+10", placeholder: "Co"
+          assert_field "Race bonus", with: nil, placeholder: "race"
+          assert_field "Total bonus", with: "+10"
+        end
+      end
+      
+      within "section.rr:nth-of-type(3)" do
+        assert_selector "h1", text: "Mentalism"
+        with_options readonly: true do
+          assert_field "Normal bonus", with: "0", placeholder: "Pr"
+          assert_field "Race bonus", with: nil, placeholder: "race"
+          assert_field "Total bonus", with: "0"
+        end
+      end
+      
+      within "section.rr:nth-of-type(4)" do
+        assert_selector "h1", text: "Essence"
+        with_options readonly: true do
+          assert_field "Normal bonus", with: "+5", placeholder: "Em"
+          assert_field "Race bonus", with: nil, placeholder: "race"
+          assert_field "Total bonus", with: "+5"
+        end
+      end
+      
+      within "section.rr:nth-of-type(5)" do
+        assert_selector "h1", text: "Channeling"
+        with_options readonly: true do
+          assert_field "Normal bonus", with: "0", placeholder: "In"
+          assert_field "Race bonus", with: nil, placeholder: "race"
+          assert_field "Total bonus", with: "0"
+        end
+      end
+    end
+    
     # TODO: Shield
 
     # Defensive Bonus

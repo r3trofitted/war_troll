@@ -77,6 +77,11 @@ en:
       quickness_bonus: "Quickness bonus"
       race_and_profession: "Race & profession"
       resistance_rolls: "Resistance rolls"
+      rr_against_channeling: "Channeling"
+      rr_against_disease: "Disease"
+      rr_against_essence: "Essence"
+      rr_against_mentalism: "Mentalism"
+      rr_against_poison: "Poison"
       shield: "Shield"
       skill_areas: "Skill areas"
       skills: "Skills"
@@ -101,5 +106,9 @@ en:
       character[defensive_bonus]:
         normal_bonus: "Normal bonus"
         object_bonus: "Object bonus"
+        special_bonus: "Special bonus"
+        total_bonus: "Total bonus"
+      character[resistance_roll_bonus]:
+        normal_bonus: "Normal bonus"
         special_bonus: "Special bonus"
         total_bonus: "Total bonus"
