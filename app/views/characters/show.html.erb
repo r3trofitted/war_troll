@@ -41,16 +41,16 @@
       <legend>
         <%= t ".stats" %>
       </legend>
-      <%= render "stat", stat: OpenStruct.new(name: "Constitution",    abbr: "Co", temporary_value: "93", potential_value: "95", development_points: "8", normal_bonus: "+10", bonus_modification: "",   total_bonus: "+10") %><%# FIXME: slime! @character.constitution %>
-      <%= render "stat", stat: OpenStruct.new(name: "Agility",         abbr: "Ag", temporary_value: "82", potential_value: "87", development_points: "8", normal_bonus: "+5",  bonus_modification: "",   total_bonus: "+5") %><%# FIXME: slime! @character.agility %>
-      <%= render "stat", stat: OpenStruct.new(name: "Self Discipline", abbr: "Sd", temporary_value: "62", potential_value: "62", development_points: "6", normal_bonus: "0",   bonus_modification: "+5", total_bonus: "+5") %><%# FIXME: slime! @character.self_discipline %>
-      <%= render "stat", stat: OpenStruct.new(name: "Memory",          abbr: "Me", temporary_value: "54", potential_value: "62", development_points: "6", normal_bonus: "0",   bonus_modification: "",   total_bonus: "0") %><%# FIXME: slime! @character.memory %>
-      <%= render "stat", stat: OpenStruct.new(name: "Reasoning",       abbr: "Re", temporary_value: "71", potential_value: "71", development_points: "6", normal_bonus: "0",   bonus_modification: "",   total_bonus: "0") %><%# FIXME: slime! @character.reasoning %>
-      <%= render "stat", stat: OpenStruct.new(name: "Strength",        abbr: "St", temporary_value: "97", potential_value: "97", normal_bonus: "+15", bonus_modification: "+5", total_bonus: "+20") %><%# FIXME: slime! @character.strength %>
-      <%= render "stat", stat: OpenStruct.new(name: "Quickness",       abbr: "Qu", temporary_value: "92", potential_value: "92", normal_bonus: "+10", bonus_modification: "",   total_bonus: "+10") %><%# FIXME: slime! @character.quickness %>
-      <%= render "stat", stat: OpenStruct.new(name: "Presence",        abbr: "Pr", temporary_value: "42", potential_value: "56", normal_bonus: "0",  bonus_modification: "",    total_bonus: "0") %><%# FIXME: slime! @character.presence %>
-      <%= render "stat", stat: OpenStruct.new(name: "Empathy",         abbr: "Em", temporary_value: "80", potential_value: "82", normal_bonus: "+5", bonus_modification: "",    total_bonus: "+5") %><%# FIXME: slime! @character.empathy %>
-      <%= render "stat", stat: OpenStruct.new(name: "Intution",        abbr: "In", temporary_value: "58", potential_value: "74", normal_bonus: "0",  bonus_modification: "",    total_bonus: "0") %><%# FIXME: slime! @character.intuition %>
+      <%= render @character.constitution %>
+      <%= render @character.agility %>
+      <%= render @character.self_discipline %>
+      <%= render @character.memory %>
+      <%= render @character.reasoning %>
+      <%= render @character.strength %>
+      <%= render @character.quickness %>
+      <%= render @character.presence %>
+      <%= render @character.empathy %>
+      <%= render @character.intuition %>
     </fieldset>
     <fieldset id="movement">
       <legend>
