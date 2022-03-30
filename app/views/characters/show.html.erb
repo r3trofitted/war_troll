@@ -9,7 +9,7 @@
       <legend>
         <%= t ".race_and_profession" %>
       </legend>
-      <%= f.text_field :race, readonly: true, value: "Human" %><%# FIXME: slime! %>
+      <%= f.text_field :race, value: f.object.race.model_name.human, readonly: true %>
       <%= f.text_field :profession, readonly: true, value: "Fighter" %><%# FIXME: slime! %>
       <%= f.text_field :realm_of_power, readonly: true %>
       <%= f.text_field :level, readonly: true %>
@@ -109,11 +109,11 @@
       <legend>
         <%= t ".health" %>
       </legend>
-      <%= f.text_field :soul_departure, readonly: true, value: "12" %><%# FIXME: slime! %>
-      <%= f.text_field :stat_deterioration, readonly: true, value: "0" %><%# FIXME: slime! %>
-      <%= f.text_field :recovery_multiplier, readonly: true, value: "×1" %><%# FIXME: slime! %>
-      <%= f.text_field :type_of_hit_dice, readonly: true, value: "d8" %><%# FIXME: slime! %>
-      <%= f.text_field :maximum_base_hit_point_total, readonly: true, value: "120" %><%# FIXME: slime! %>
+      <%= f.text_field :soul_departure, readonly: true %>
+      <%= f.text_field :stat_deterioration, readonly: true %>
+      <%= f.text_field :recovery_multiplier, readonly: true %>
+      <%= f.text_field :type_of_hit_dice, readonly: true %>
+      <%= f.text_field :maximum_base_hit_point_total, readonly: true %>
     </fieldset>
     <fieldset id="resistance-rolls">
       <legend>

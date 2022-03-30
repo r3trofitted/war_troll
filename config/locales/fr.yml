@@ -1,4 +1,10 @@
 fr:
+  activemodel:
+    models:
+      races/dwarf: "Nain"
+      races/elf: "Elfe"
+      races/halfling: "Semi-homme"
+      races/human: "Humain"
   activerecord:
     attributes:
       character/genders:

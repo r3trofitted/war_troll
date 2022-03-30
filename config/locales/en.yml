@@ -1,4 +1,10 @@
 en:
+  activemodel:
+    models:
+      races/dwarf: "Dwarf"
+      races/elf: "Elf"
+      races/halfling: "Halfling"
+      races/human: "Human"
   activerecord:
     attributes:
       character/genders:
