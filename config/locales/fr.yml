@@ -1,5 +1,18 @@
 fr:
   activemodel:
+    attributes:
+      skill/development_costs:
+        bows: "Arcs"
+        one_handed_crushing: "Tranchantes à 1 main"
+        one_handed_edged: "Contondantes à 1 main"
+        pole_arms: "Arms d'hast"
+        thrown: "De jet"
+        two_handed: "2 mains"
+        riding: "Équitation"
+        directed_spells: "Direction de sort"
+        spell_lists: "Liste de sorts"
+        adrenal_movesl: "Mouvements adrénaux"
+        martial_arts: "Arts martiaux"
     models:
       defensive_bonus: "Bonus défensif"
       races/dwarf: "Nain"

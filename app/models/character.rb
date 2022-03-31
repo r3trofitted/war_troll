@@ -10,10 +10,14 @@ class Character < ApplicationRecord
                 to: :race
     end
   end
+  
+  concerning :Skills do
+    included do
+      attribute :skill_development_costs, :character_skill_development_costs, default: Skill::DevelopmentCosts.new
+    end
+  end
 
   concerning :Stats do
-    STATS = %i(constitution agility self_discipline memory reasoning strength quickness presence empathy intuition)
-
     included do
       attribute :stats, :character_stats, default: Stat::Struct.new
     end

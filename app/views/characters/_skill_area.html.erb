@@ -1,0 +1,7 @@
+<section class="skill-area">
+  <%= tag.h1 Skill::DevelopmentCosts.human_attribute_name(area) %>
+  <%= form.label area, class: "dev-cost" do %>
+    <%= tag.span t(".development_cost") %>
+    <%= form.text_field area, readonly: true %>
+  <% end %>
+</section>

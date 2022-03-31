@@ -24,6 +24,18 @@ auberc:
   gender: 0
   base_movement_rate: 30
   maximum_pace: 2
+  skill_development_costs:
+    bows: "5"
+    one_handed_crushing: "2/7"
+    one_handed_edged: "2/5"
+    pole_arms: "2/7"
+    thrown: "2/7"
+    two_handed: "1/5"
+    riding: "2/6"
+    directed_spells: "20"
+    spell_lists: "20"
+    adrenal_moves: "20"
+    martial_arts: "3/7"
 balor:
   name: Balor
   race: human

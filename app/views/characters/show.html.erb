@@ -146,95 +146,30 @@
       </section>
     </fieldset>
     <fieldset id="skill-areas">
-      <%# FIXME: this whole section is slimed! %>
       <legend>
         <%= t ".skill_areas" %>
       </legend>
-      <section class="skills-category">
-        <section class="skill-area">
-          <h1>Bows</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="5" readonly="readonly">
-          </label>
+      <%= fields_for @character.skill_development_costs do |g| %>
+        <section class="skills-category">
+          <%= render "skill_area", area: :bows, form: g %>
+          <%= render "skill_area", area: :one_handed_crushing, form: g %>
+          <%= render "skill_area", area: :one_handed_edged, form: g %>
+          <%= render "skill_area", area: :pole_arms, form: g %>
+          <%= render "skill_area", area: :thrown, form: g %>
+          <%= render "skill_area", area: :two_handed, form: g %>
         </section>
-        <section class="skill-area">
-          <h1>One-handed crushing</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="2/7" readonly="readonly">
-          </label>
+        <section class="skills-category">
+          <%= render "skill_area", area: :riding, form: g %>
         </section>
-        <section class="skill-area">
-          <h1>One-handed edged</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="2/5" readonly="readonly">
-          </label>
+        <section class="skills-category">
+          <%= render "skill_area", area: :directed_spells, form: g %>
+          <%= render "skill_area", area: :spell_lists, form: g %>
         </section>
-        <section class="skill-area">
-          <h1>Pole arms</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="2/7" readonly="readonly">
-          </label>
+        <section class="skills-category">
+          <%= render "skill_area", area: :adrenal_moves, form: g %>
+          <%= render "skill_area", area: :martial_arts, form: g %>
         </section>
-        <section class="skill-area">
-          <h1>Thrown</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="2/7" readonly="readonly">
-          </label>
-        </section>
-        <section class="skill-area">
-          <h1>Two-handed</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="1/5" readonly="readonly">
-          </label>
-        </section>
-      </section>
-      <section class="skills-category">
-        <section class="skill-area">
-          <h1>Riding</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="2/6" readonly="readonly">
-          </label>
-        </section>
-      </section>
-      <section class="skills-category">
-        <section class="skill-area">
-          <h1>Directed spells</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="20" readonly="readonly">
-          </label>
-        </section>
-        <section class="skill-area">
-          <h1>Spell lists</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="20" readonly="readonly">
-          </label>
-        </section>
-      </section>
-      <section class="skills-category">
-        <section class="skill-area">
-          <h1>Adrenal moves</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="20" readonly="readonly">
-          </label>
-        </section>
-        <section class="skill-area">
-          <h1>Martial arts</h1>
-          <label class="dev-cost">
-            <span><%= t ".development_cost" %></span>
-            <input type="text" value="3/7" readonly="readonly">
-          </label>
-        </section>
-      </section>
+      <% end %>
     </fieldset>
     <fieldset id="languages">
       <legend>

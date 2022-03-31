@@ -1,5 +1,18 @@
 en:
   activemodel:
+    attributes:
+      skill/development_costs:
+        bows: "Bows"
+        one_handed_crushing: "One-handed crushing"
+        one_handed_edged: "One-handed edged"
+        pole_arms: "Pole arms"
+        thrown: "Thrown"
+        two_handed: "Two-handed"
+        riding: "Riding"
+        directed_spells: "Directed spells"
+        spell_lists: "Spell lists"
+        adrenal_movesl: "Adrenal moves"
+        martial_arts: "Martial arts"
     models:
       defensive_bonus: "Defensive bonus"
       races/dwarf: "Dwarf"
@@ -87,6 +100,8 @@ en:
       skills: "Skills"
       stats: "Stats"
       total_bonus: "Total bonus"
+    skill_area:
+      development_cost: "Development cost"
     stat:
       development_points: "Development points"
       name_html: "%{name} <abbr>(%{abbr})</abbr>"
