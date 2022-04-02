@@ -18,7 +18,10 @@ class Character < ApplicationRecord
     
     # FIXME: slime!
     def skills
-      OpenStruct.new perception: Skill::Primary.new(stat: intuition, development_cost: "2/5", ranks: 4)
+      OpenStruct.new({
+        plate: Skill::ManeuveringInArmor.new(development_cost: "2/*", ranks: 14, special_bonus_3: Bonus.new(-90)),
+        perception: Skill::Primary.new(stat: intuition, development_cost: "2/5", ranks: 4)
+      })
     end
   end
 

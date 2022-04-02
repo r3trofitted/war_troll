@@ -13,6 +13,12 @@ fr:
         spell_lists: "Liste de sorts"
         adrenal_movesl: "Mouvements adrénaux"
         martial_arts: "Arts martiaux"
+      skill/maneuvering_in_armor:
+          object_bonus: "Bonus d'objet"
+          rank_bonus: "Bonus de degrés de maîtrise"
+          special_bonus_1: "Bonus special n°1"
+          special_bonus_2: "Bonus special n°2"
+          special_bonus_3: "Pénalité max."
         skill/primary:
           object_bonus: "Bonus d'objet"
           rank_bonus: "Bonus de degrés de maîtrise"

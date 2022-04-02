@@ -114,7 +114,7 @@
         <%= render "skill_stub", skill: OpenStruct.new(name: "Soft leather", special?: true) %>
         <%= render "skill_stub", skill: OpenStruct.new(name: "Hard leather", special?: true) %>
         <%= render "skill_stub", skill: OpenStruct.new(name: "Chain", special?: true) %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Plate", special?: true) %>
+        <%= render @character.skills.plate, name: "Plate", form: f %>
       </section>
       <section class="skills-category">
         <%= render "skill_form" %>

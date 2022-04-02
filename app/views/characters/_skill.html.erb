@@ -6,8 +6,18 @@
       <%= skill_rank_checkboxes(skill) %>
     </fieldset>
     <%= f.bonus_field :rank_bonus, readonly: true %>
-    <%= f.bonus_field :normal_bonus, kind: f.object.stat.abbr, readonly: true %>
-    <%= f.bonus_field :level_bonus, kind: :level, readonly: true %>
+    <% if skill.respond_to? :normal_bonus %>
+      <%= f.bonus_field :normal_bonus, kind: f.object.stat.abbr, readonly: true %>
+    <% else %>
+      <%= na_bonus_tag %>
+    <% end %>
+    
+    <% if skill.respond_to? :level_bonus %>
+      <%= f.bonus_field :level_bonus, kind: :level, readonly: true %>
+    <% else %>
+      <%= na_bonus_tag %>
+    <% end %>
+    
     <%= f.bonus_field :object_bonus, kind: :object, readonly: true %>
     <%= f.bonus_field :special_bonus_1, kind: :special, readonly: true %>
     <%= f.bonus_field :special_bonus_2, kind: :special, readonly: true %>
