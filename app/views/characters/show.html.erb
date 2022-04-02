@@ -129,7 +129,7 @@
         <%= render "skill_stub", skill: OpenStruct.new(name: "Pick locks") %>
         <%= render "skill_stub", skill: OpenStruct.new(name: "Ambush", special?: true) %>
         <%= render "skill_stub", skill: OpenStruct.new(name: "Stalk & Hide") %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Perception") %>
+        <%= render @character.skills.perception, name: "Perception", form: f %>
       </section>
       <section class="skills-category">
         <%= render "skill_stub", skill: OpenStruct.new(name: "Staves & Wands") %>

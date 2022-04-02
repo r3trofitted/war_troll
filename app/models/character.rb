@@ -15,6 +15,11 @@ class Character < ApplicationRecord
     included do
       attribute :skill_development_costs, :character_skill_development_costs, default: Skill::DevelopmentCosts.new
     end
+    
+    # FIXME: slime!
+    def skills
+      OpenStruct.new perception: Skill::Primary.new(stat: intuition, development_cost: "2/5", ranks: 4)
+    end
   end
 
   concerning :Stats do

@@ -13,6 +13,13 @@ en:
         spell_lists: "Spell lists"
         adrenal_movesl: "Adrenal moves"
         martial_arts: "Martial arts"
+      skill/primary:
+        level_bonus: "Level bonus"
+        object_bonus: "Object bonus"
+        rank_bonus: "Skill rank bonus"
+        special_bonus_1: "Special bonus #1"
+        special_bonus_2: "Special bonus #2"
+        special_bonus_3: "Special bonus #3"
     models:
       defensive_bonus: "Defensive bonus"
       races/dwarf: "Dwarf"
