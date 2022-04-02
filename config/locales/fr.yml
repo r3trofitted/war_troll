@@ -19,12 +19,12 @@ fr:
           special_bonus_1: "Bonus special n°1"
           special_bonus_2: "Bonus special n°2"
           special_bonus_3: "Pénalité max."
-        skill/primary:
-          object_bonus: "Bonus d'objet"
-          rank_bonus: "Bonus de degrés de maîtrise"
-          special_bonus_1: "Bonus special n°1"
-          special_bonus_2: "Bonus special n°2"
-          special_bonus_3: "Bonus special n°3"
+      skill/primary:
+        object_bonus: "Bonus d'objet"
+        rank_bonus: "Bonus de degrés de maîtrise"
+        special_bonus_1: "Bonus special n°1"
+        special_bonus_2: "Bonus special n°2"
+        special_bonus_3: "Bonus special n°3"
     models:
       defensive_bonus: "Bonus défensif"
       races/dwarf: "Nain"
