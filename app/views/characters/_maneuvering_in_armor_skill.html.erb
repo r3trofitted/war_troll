@@ -1,12 +1,12 @@
-<%= tag.section class: class_names("skill", "developed": skill.ranks.to_i.positive?) do %>
+<%= tag.section class: class_names("skill", "developed": maneuvering_in_armor_skill.ranks.to_i.positive?) do %>
   <h1><%= name %></h1>
-  <%= form.fields_for skill do |f| %>
+  <%= form.fields_for maneuvering_in_armor_skill do |f| %>
     <%= f.text_field :development_cost, label_class: "dev-cost", readonly: true %>
     <fieldset class="skill-ranks">
-      <%= skill_rank_checkboxes(skill.ranks) %>
+      <%= skill_rank_checkboxes(maneuvering_in_armor_skill.ranks, special: true) %>
     </fieldset>
     <%= f.bonus_field :rank_bonus, readonly: true %>
-    <%= f.bonus_field :normal_bonus, kind: f.object.stat.abbr, readonly: true %>
+    <%= na_bonus_tag %>
     <%= na_bonus_tag %>
     <%= f.bonus_field :object_bonus, kind: :object, readonly: true %>
     <%= f.bonus_field :special_bonus_1, kind: :special, readonly: true %>
