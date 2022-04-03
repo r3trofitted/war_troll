@@ -117,7 +117,8 @@
         <%= render @character.skills.plate, name: "Plate", form: f %>
       </section>
       <section class="skills-category">
-        <%= render "skill_form" %>
+        <%= render @character.weapon_skills, form: f %>
+        <%#= render "skill_form" %>
       </section>
       <section class="skills-category">
         <%= render "skill_stub", skill: OpenStruct.new(name: "Climbing") %>

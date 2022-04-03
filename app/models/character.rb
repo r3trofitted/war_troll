@@ -23,6 +23,13 @@ class Character < ApplicationRecord
         perception: Skill::Primary.new(stat: intuition, development_cost: "2/5", ranks: 4)
       })
     end
+    
+    # FIXME: slime!
+    def weapon_skills
+      [
+        Skill::Weapon.new(stat: strength, development_cost: "1/5", ranks: 6, level_bonus: Bonus.new(9), weapon: :two_handed_sword)
+      ]
+    end
   end
 
   concerning :Stats do

@@ -1,4 +1,6 @@
 en:
+  # SLIME
+  two_handed_sword: "Two-handed sword"
   activemodel:
     attributes:
       skill/development_costs:
@@ -20,6 +22,13 @@ en:
         special_bonus_2: "Special bonus #2"
         special_bonus_3: "Max. penalty"
       skill/primary:
+        object_bonus: "Object bonus"
+        rank_bonus: "Skill rank bonus"
+        special_bonus_1: "Special bonus #1"
+        special_bonus_2: "Special bonus #2"
+        special_bonus_3: "Special bonus #3"
+      skill/weapon:
+        level_bonus: "Level bonus"
         object_bonus: "Object bonus"
         rank_bonus: "Skill rank bonus"
         special_bonus_1: "Special bonus #1"

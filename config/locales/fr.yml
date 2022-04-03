@@ -1,4 +1,6 @@
 fr:
+  # FIXME: slime!
+  two_handed_sword: "Épée à deux mains"
   activemodel:
     attributes:
       skill/development_costs:
@@ -20,6 +22,13 @@ fr:
           special_bonus_2: "Bonus special n°2"
           special_bonus_3: "Pénalité max."
       skill/primary:
+        object_bonus: "Bonus d'objet"
+        rank_bonus: "Bonus de degrés de maîtrise"
+        special_bonus_1: "Bonus special n°1"
+        special_bonus_2: "Bonus special n°2"
+        special_bonus_3: "Bonus special n°3"
+      skill/weapon:
+        level_bonus: "Bonus de niveay"
         object_bonus: "Bonus d'objet"
         rank_bonus: "Bonus de degrés de maîtrise"
         special_bonus_1: "Bonus special n°1"
