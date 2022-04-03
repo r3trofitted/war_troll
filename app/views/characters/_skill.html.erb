@@ -3,7 +3,7 @@
   <%= form.fields_for skill do |f| %>
     <%= f.text_field :development_cost, label_class: "dev-cost", readonly: true %>
     <fieldset class="skill-ranks">
-      <%= skill_rank_checkboxes(skill) %>
+      <%= skill_rank_checkboxes(skill.ranks) %>
     </fieldset>
     <%= f.bonus_field :rank_bonus, readonly: true %>
     <% if skill.respond_to? :normal_bonus %>
