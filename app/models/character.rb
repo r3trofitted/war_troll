@@ -15,6 +15,43 @@ class Character < ApplicationRecord
     included do
       attribute :skill_development_costs, :character_skill_development_costs, default: Skill::DevelopmentCosts.new
       attribute :maneuvering_in_armor_skills, :character_skills_bundle, skills: Skill::MANEUVERING_IN_ARMOR, skill_class: Skill::ManeuveringInArmor
+      attribute :primary_skills, :character_skills_bundle, skills: Skill::PRIMARY, skill_class: Skill::Primary
+    end
+    
+    def climbing
+      primary_skills.climbing.tap { |s| s.stat = agility }
+    end
+    
+    def swimming
+      primary_skills.swimming.tap { |s| s.stat = agility }
+    end
+    
+    def disarm_traps
+      primary_skills.disarm_traps.tap { |s| s.stat = intuition }
+    end
+    
+    def pick_locks
+      primary_skills.pick_locks.tap { |s| s.stat = intuition }
+    end
+    
+    def stalk_and_hide
+      primary_skills.stalk_and_hide.tap { |s| s.stat = agility }
+    end
+    
+    def perception
+      primary_skills.perception.tap { |s| s.stat = intuition }
+    end
+    
+    def runes
+      primary_skills.runes.tap { |s| s.stat = empathy }
+    end
+    
+    def staves_and_wands
+      primary_skills.staves_and_wands.tap { |s| s.stat = empathy }
+    end
+    
+    def channeling
+      primary_skills.channeling.tap { |s| s.stat = intuition }
     end
     
     # FIXME: slime!

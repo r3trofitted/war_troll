@@ -40,6 +40,25 @@ auberc:
     plate:
       ranks: 14
       development_cost: "2/*"
+  primary_skills:
+    climbing:
+      ranks: 1
+      development_cost: "3/7"
+    swimming:
+      ranks: 2
+      development_cost: "2/6"
+    disarm_traps:
+      ranks: 0
+      development_cost: "3/8"
+    pick_locks:
+      ranks: 0
+      development_cost: "3/9"
+    stalk_and_hide:
+      ranks: 1
+      development_cost: "2/5"
+    perception:
+      ranks: 3
+      development_cost: "2/5"
 balor:
   name: Balor
   race: human

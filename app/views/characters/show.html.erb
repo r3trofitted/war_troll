@@ -121,21 +121,21 @@
         <%#= render "skill_form" %>
       </section>
       <section class="skills-category">
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Climbing") %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Swimming") %>
+        <%= render @character.climbing, name: "Climbing", form: f %>
+        <%= render @character.swimming, name: "Swimming", form: f %>
         <%= render "skill_form" %>
       </section>
       <section class="skills-category">
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Disarm traps") %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Pick locks") %>
+        <%= render @character.disarm_traps, name: "Disarm traps", form: f %>
+        <%= render @character.pick_locks, name: "Pick locks", form: f %>
         <%= render "skill_stub", skill: OpenStruct.new(name: "Ambush", special?: true) %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Stalk & Hide") %>
-        <%= render @character.skills.perception, name: "Perception", form: f %>
+        <%= render @character.stalk_and_hide, name: "Stalk & Hide", form: f %>
+        <%= render @character.perception, name: "Perception", form: f %>
       </section>
       <section class="skills-category">
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Staves & Wands") %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Runes") %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Channeling") %>
+        <%= render @character.staves_and_wands, name: "Staves & Wands", form: f %>
+        <%= render @character.runes, name: "Runes", form: f %>
+        <%= render @character.channeling, name: "Channeling", form: f %>
         <%= render "skill_form" %>
       </section>
       <section class="skills-category">
