@@ -13,8 +13,8 @@ module Types
     end
     
     def deserialize(value)
-      Skill::Bundle.new(*@skills).tap do |bundle|
-        super.each { |name, attrs| bundle[name] = @skill_class.new(attrs) } unless value.nil?
+      Skill::Bundle.new(*@skills, klass: @skill_class).tap do |bundle|
+        Hash(super).each { |name, attrs| bundle[name] = @skill_class.new(attrs) }
       end
     end
   end

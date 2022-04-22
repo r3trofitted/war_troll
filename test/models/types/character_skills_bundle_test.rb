@@ -30,13 +30,22 @@ class Types::CharacterSkillsBundleTest < ActiveSupport::TestCase
   test "when deserializing, the :skill_class option is used to cast the individual skills from the bundle" do
     bundle = @type.deserialize(RAW_DB_VALUE)
     
-    bundle.each do |skill|
-      assert_kind_of Skill::ManeuveringInArmor, skill
-    end
+    assert_kind_of Skill::ManeuveringInArmor, bundle.chain
+    assert_kind_of Skill::ManeuveringInArmor, bundle.plate
+  end
+  
+  test "when deserializing, NULL data is cast to an empty but valid bundle" do
+    bundle= @type.deserialize(nil)
+    
+    assert_kind_of Skill::Bundle, bundle
+    assert_kind_of Skill::ManeuveringInArmor, bundle.chain
+    assert_equal 0, bundle.chain.ranks
+    assert_kind_of Skill::ManeuveringInArmor, bundle.plate
+    assert_equal 0, bundle.plate.ranks
   end
   
   test "when serializing, only the ranks and development costs of the skills are stored" do
-    bundle = Skill::Bundle.new(:chain).tap do |b|
+    bundle = Skill::Bundle.new(:chain, klass: Skill::ManeuveringInArmor).tap do |b|
       b.chain = Skill::ManeuveringInArmor.new(ranks: 10, development_cost: "3/*", object_bonus: Bonus.new(10))
     end
     
@@ -48,7 +57,7 @@ class Types::CharacterSkillsBundleTest < ActiveSupport::TestCase
   end
   
   test "when serializing, blank skills from the bundle are ignored" do
-    bundle = Skill::Bundle.new(:chain).tap do |b|
+    bundle = Skill::Bundle.new(:chain, klass: Skill::ManeuveringInArmor).tap do |b|
       b.chain = nil
     end
     

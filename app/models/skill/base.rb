@@ -6,6 +6,10 @@ module Skill
     
     validates :ranks, inclusion: { in: 0..25 }
     
+    def ranks
+      @ranks ||= 0
+    end
+    
     def special?
       false
     end

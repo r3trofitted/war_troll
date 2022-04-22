@@ -1,9 +1,13 @@
 module Skill
   class Bundle
-    delegate_missing_to :@_struct
+    delegate_missing_to :@_content
     
-    def initialize(*skills)
-      @_struct = Struct.new(*skills, keyword_init: true).new # OPTIMIZE: the Struct could be cached and re-used
+    def initialize(*skills, klass:)
+      struct = Struct.new(*skills, keyword_init: true) # OPTIMIZE: the Struct could be cached and re-used
+      
+      @_content = struct.new.tap do |s|
+        s.each_pair { |skill, _| s[skill] = klass.new }
+      end
     end
   end
 end
