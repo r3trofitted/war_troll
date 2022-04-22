@@ -36,6 +36,10 @@ auberc:
     spell_lists: "20"
     adrenal_moves: "20"
     martial_arts: "3/7"
+  maneuvering_in_armor_skills:
+    plate:
+      ranks: 14
+      development_cost: "2/*"
 balor:
   name: Balor
   race: human

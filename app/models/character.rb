@@ -14,12 +14,12 @@ class Character < ApplicationRecord
   concerning :Skills do
     included do
       attribute :skill_development_costs, :character_skill_development_costs, default: Skill::DevelopmentCosts.new
+      attribute :maneuvering_in_armor_skills, :character_skills_bundle, skill_class: Skill::ManeuveringInArmor, skills: Skill::MANEUVERING_IN_ARMOR
     end
     
     # FIXME: slime!
     def skills
       OpenStruct.new({
-        plate: Skill::ManeuveringInArmor.new(development_cost: "2/*", ranks: 14, special_bonus_3: Bonus.new(-90)),
         perception: Skill::Primary.new(stat: intuition, development_cost: "2/5", ranks: 4)
       })
     end

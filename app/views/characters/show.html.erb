@@ -111,10 +111,10 @@
         <%= t ".skills" %>
       </legend>
       <section class="skills-category">
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Soft leather", special?: true) %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Hard leather", special?: true) %>
-        <%= render "skill_stub", skill: OpenStruct.new(name: "Chain", special?: true) %>
-        <%= render @character.skills.plate, name: "Plate", form: f %>
+        <%= render @character.maneuvering_in_armor_skills.soft_leather, name: "Soft leather", form: f %>
+        <%= render @character.maneuvering_in_armor_skills.hard_leather, name: "Hard leather", form: f %>
+        <%= render @character.maneuvering_in_armor_skills.chain, name: "Chain", form: f %>
+        <%= render @character.maneuvering_in_armor_skills.plate, name: "Plate", form: f %>
       </section>
       <section class="skills-category">
         <%= render @character.weapon_skills, form: f %>
