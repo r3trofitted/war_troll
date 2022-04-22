@@ -14,7 +14,7 @@ class Character < ApplicationRecord
   concerning :Skills do
     included do
       attribute :skill_development_costs, :character_skill_development_costs, default: Skill::DevelopmentCosts.new
-      attribute :maneuvering_in_armor_skills, :character_skills_bundle, skill_class: Skill::ManeuveringInArmor, skills: Skill::MANEUVERING_IN_ARMOR
+      attribute :maneuvering_in_armor_skills, :character_skills_bundle, skills: Skill::MANEUVERING_IN_ARMOR, skill_class: Skill::ManeuveringInArmor
     end
     
     # FIXME: slime!

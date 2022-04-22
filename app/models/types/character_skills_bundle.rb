@@ -1,6 +1,6 @@
 module Types
   class CharacterSkillsBundle < ActiveRecord::Type::Json
-    def initialize(skill_class:, skills:, **kwargs)
+    def initialize(skills:, skill_class:, **kwargs)
       @skill_class = skill_class
       @skills = skills
       super(**kwargs)
