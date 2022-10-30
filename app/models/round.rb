@@ -39,4 +39,19 @@ class Round < ApplicationRecord
   def next
     Round.create combat_id: combat_id, combatants: combatants, number: number + 1
   end
+  
+  def action_types
+    case phase
+    when SPELL
+      ["SpellPreparation", "SpellCasting"]
+    when FIRE_A, FIRE_B
+      ["MissileAttack"]
+    when MOVEMENT_MANEUVRE
+      ["Movement", "Maneuvre"]
+    when MELEE
+      ["MeleeAttack"]
+    else
+      []
+    end
+  end
 end

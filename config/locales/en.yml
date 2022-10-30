@@ -1,4 +1,24 @@
 en:
+  actions:
+    cancel: "cancel"
+    movement:
+      declaration: "%{combatant} makes a movement"
+      new_action: "Make a movement"
+    maneuvre:
+      declaration: "%{combatant} makes a maneuvre"
+      new_action: "Make a maneuvre"
+    melee_attack:
+      declaration: "%{combatant} makes a melee attack"
+      new_action: "Make a melee attack"
+    missile_attack:
+      declaration: "%{combatant} makes a missile attack"
+      new_action: "Make a missile attack"
+    spell_casting:
+      new_action: "Cast a spell"
+      declaration: "%{combatant} casts a spell"
+    spell_preparation:
+      new_action: "Prepare a spell"
+      declaration: "%{combatant} prepares a spell"
   participations:
     participation:
       activity: "Activity left"

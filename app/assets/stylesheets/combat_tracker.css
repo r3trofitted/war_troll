@@ -79,7 +79,11 @@ main {
 }
 
 .block {
-  padding: 0.5em 1em;
+  --vertical-padding: 0.5em;
+  --horizontal-padding: 1em;
+  
+  
+  padding: var(--vertical-padding) var(--horizontal-padding);
   
   border: 1px solid var(--clr-black);
   background-color: var(--clr-white);
@@ -87,8 +91,7 @@ main {
 
 .block.floating {
   border: none;
-  box-shadow: 0 4px 6px 0 var(--clr-grey), 
-              0 1px 3px 0 var(--tw-slate-800);
+  box-shadow: 0 4px 6px 0 var(--clr-black);
 }
 
 /* Form elements */
@@ -138,6 +141,7 @@ main {
 .combatant_card {
   display: grid;
   grid-template-columns: subgrid;
+  row-gap: 0.5em;
   
   grid-column: 1 / -1;
 }
@@ -241,4 +245,67 @@ main {
   color: var(--clr-grey);
   
   background-color: var(--clr-white);
+}
+
+.combatant_actions {
+  --horizontal-offset: calc(0em - var(--horizontal-padding));
+  --vertical-offset: calc(0em - var(--vertical-padding));
+  
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  grid-auto-flow: column;
+  row-gap: 0.25em;
+  
+  grid-column: 1 / -1;
+  
+  min-height: calc(3.5 * var(--fs-body));
+  
+  margin-left: var(--horizontal-offset);
+  margin-right: var(--horizontal-offset);
+  margin-bottom: var(--vertical-offset);
+  
+  background-color: var(--clr-grey);
+}
+
+.combatant_action {
+  grid-column: 1;
+  margin: 1px 0;
+  
+  border: none;
+  background-color: var(--tw-slate-200);
+  
+  padding-left: var(--horizontal-padding);
+  text-align: left;
+}
+
+.combatant_action:not(:disabled):hover {
+  background-color: var(--tw-blue-200);
+}
+
+.activity_cost {
+  padding-left: 0.25em;
+  color: var(--clr-white);
+}
+
+.activity_cost input {
+  width: 3ch;
+  text-align: right;
+}
+
+.declared_action {
+  grid-column: 3;
+  
+  color: var(--clr-grey-light);
+  
+  padding-right: 0.25em;
+  text-align: right;
+}
+
+.declared_action a {
+  color: var(--tw-orange-500);
+}
+
+.declared_action a:hover {
+  color: var(--tw-orange-700);
 }

@@ -1,6 +1,11 @@
 require "application_system_test_case"
 
 class CombatTrackerTest < ApplicationSystemTestCase
+  Capybara.add_selector :combatant_card do
+    # matches `<article class="combatant_card">` elements with an `<h3>` child that contains the passed name
+    xpath { |name| ".//article[contains(@class, 'combatant_card') and h3[text()='#{name}']]" }
+  end
+  
   PRETTY_COMBAT_ROUND_URL_PATTERN = %r|combats/(\d+)/round-(\d+)|
   
   test "tracking a new combat, from the GM's perspective" do
@@ -41,6 +46,28 @@ class CombatTrackerTest < ApplicationSystemTestCase
       assert_content "Crocodile #1"
       
       refute_content "Add a combatant"
+    end
+    
+    within :combatant_card, "Auberc" do
+      assert_button "Prepare a spell"
+      assert_button "Cast a spell"
+    end
+    
+    within :combatant_card, "Balor" do
+      assert_button "Prepare a spell"
+      assert_button "Cast a spell"
+      
+      click_on "Prepare a spell"
+      
+      refute_button "Prepare a spell"
+      assert_button "Cast a spell", disabled: true
+      assert_text "Balor prepares a spell"
+      assert_text %r|Activity left\s*10%|
+    end
+    
+    within :combatant_card, "Crocodile #1" do
+      assert_button "Prepare a spell"
+      assert_button "Cast a spell"
     end
     
     click_on "Move to next phase"

@@ -13,3 +13,10 @@
 *   Conventions for CSS
 *   /!\ propshaft and asset URLs
 *   Clever stuff for the form layout
+
+### Session 3
+*   Actions
+*   STI in order to have _types_
+*   Polymorphic-like routes & resolve
+*   Design adjustements: box shadow so that the grey background is visible
+*   Tricky stuff: adjustable activity, variable activity range, removing vs. disabling suggested actions
