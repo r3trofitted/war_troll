@@ -1,30 +1,87 @@
 /* Application custom properties */
 
 :root {
-  --clr-black: #353535;
-  --clr-white: #fff;
-  --clr-grey: #D9D9D9;
+  /* TailwindCSS palette */
+  --tw-slate-50:  #F8FAFC;
+  --tw-slate-100: #F1F5F9;
+  --tw-slate-200: #E2E8F0;
+  --tw-slate-300: #CBD5E1;
+  --tw-slate-400: #94A3B8;
+  --tw-slate-500: #64748B;
+  --tw-slate-600: #475569;
+  --tw-slate-700: #334155;
+  --tw-slate-800: #1E293B;
+  --tw-slate-900: #0F172A;
   
-  --ff-heading: 'Montserrat', sans-serif;
-  --ff-subheading: 'Rakkas', cursive;
-  --ff-body: 'Cormorant Garamond', serif;
+  --tw-blue-50:  #EFF6FF;
+  --tw-blue-100: #DBEAFE;
+  --tw-blue-200: #BFDBFE;
+  --tw-blue-300: #93C5FD;
+  --tw-blue-400: #60A5FA;
+  --tw-blue-500: #3B82F6;
+  --tw-blue-600: 37, 99, 235;
+  --tw-blue-700: #1D4ED8;
+  --tw-blue-800: #1E40AF;
+  --tw-blue-900: #1E3A8A;
+  
+  --tw-orange-50:  #FFF7ED;
+  --tw-orange-100: #FFEDD5;
+  --tw-orange-200: #FED7AA;
+  --tw-orange-300: #FDBA74;
+  --tw-orange-400: #FB923C;
+  --tw-orange-500: #F97316;
+  --tw-orange-600: #EA580C;
+  --tw-orange-700: #C2410C;
+  --tw-orange-800: #9A3412;
+  --tw-orange-900: #7C2D12;
+  
+  --tw-red-50:  #FEF2F2;
+  --tw-red-100: #FEE2E2;
+  --tw-red-200: #FECACA;
+  --tw-red-300: #FCA5A5;
+  --tw-red-400: #F87171;
+  --tw-red-500: #EF4444;
+  --tw-red-600: #DC2626;
+  --tw-red-700: #B91C1C;
+  --tw-red-800: #991B1B;
+  --tw-red-900: #7F1D1D;
+  
+  /* Type scales from type-scale.com */
+  --ts-300: 0.75rem;
+  --ts-400: 1rem;
+  --ts-500: 1.333rem;
+  --ts-600: 1.777rem;
+  --ts-700: 2.369rem;
+  --ts-800: 3.157rem;
+  --ts-900: 4.209rem;
+  
+  
+  /* Application palette */
+  --clr-black: var(--tw-slate-900);
+  --clr-white: var(--tw-slate-50);
+  
+  --clr-grey: var(--tw-slate-600);
+  --clr-grey-light: var(--tw-slate-300);
+  
+  --clr-blue: rgb(var(--tw-blue-600));
+  --clr-blue-light: var(--tw-blue-300);
+  
+  /* Application fonts & text */
+  --ff-title: "Montserrat", sans-serif;
+  --ff-body:    "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  --ff-aside:   'Montserrat', sans-serif;
   
   --fw-regular: 400;
-  --fw-bold: 700;
+  --fw-bold:    700;
 
-  --fs-300: 0.75rem;
-  --fs-400: 1rem;
-  --fs-500: 1.333rem;
-  --fs-600: 1.777rem;
-  --fs-700: 2.369rem;
-  --fs-800: 3.157rem;
-  --fs-900: 4.209rem;
-
-  --fs-body: var(--fs-400);
+  --fs-title:      var(--ts-900);
+  --fs-heading:    var(--ts-800);
+  --fs-subheading: var(--ts-600);
+  --fs-body:       var(--ts-400);
+  --fs-footnote:   var(--ts-300);
 }
 
 /* CSS reset (from https://piccalil.li/blog/a-modern-css-reset) */
-
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -40,6 +97,10 @@ body {
   height: 100%;
 }
 
+input:focus {
+  outline: none;
+}
+
 /* Application styles */
 
 body {
@@ -51,6 +112,9 @@ body {
   font-size: var(--fs-body);
 }
 
+main {
+}
+
 button,
 input[type='submit'] {
   padding: 0.25em;
@@ -60,13 +124,14 @@ input[type='submit'] {
 h1 {
   margin: 0.5em 0;
   
-  font-size: var(--fs-900);
-  font-family: var(--ff-heading);
+  font-size: var(--fs-title);
+  font-family: var(--ff-title);
+  font-weight: var(--fw-bold);
+  
   text-align: center;
 }
 
 /* Utility classes */
-
 .sr_only {
   position: absolute;
   width: 1px;
@@ -77,6 +142,10 @@ h1 {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap; /* added line */
   border: 0;
+}
+
+.grid_ignore {
+  display: contents;
 }
 
 /* We don't want to have to take the <turbo-frame> elements into account when using grid or flexbox */

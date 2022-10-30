@@ -1,16 +1,10 @@
 <article class="round">
   <header>
     <p class="combat_id"><%= t ".combat_id", id: vanity_combat_id(@round) %></p>
-    <h1 class="round_number"><%= link_to t(".round_number", number: @round.number), @round %></h1>
+    <h1 class="round_number"><%= t ".round_number", number: @round.number %></h1>
+    <p class="round_phase"><%= t ".current_phase", phase: t(@round.phase, scope: "phases") %></p>
   </header>
   <main>
-    <section id="round_controls">
-      <p>
-        <%= t ".current_phase", phase: t(@round.phase, scope: "phases") %>
-      </p>
-      <%= next_step_button(@round) %>
-    </section>
-    
     <section id="combatants">
       <h2 class="sr_only">
         <%= t ".combatants" %>
@@ -21,7 +15,7 @@
       <% end %>
       
       <% if @round.at_phase_setup? %>
-        <div id="setup_controls" class="block">
+        <div id="setup_controls" class="combatant_card block">
           <%= turbo_frame_tag "new_participation" do %>
             <%= render "new_participation", round: @round %>
           <% end %>
@@ -29,12 +23,8 @@
       <% end %>
     </section>
     
-    <section id="phases_tracker">
-      <ol start="0">
-        <% Round::PHASES.each do |phase| %>
-          <%= tag.li t(phase, scope: "phases"), class: class_names("current_phase": @round.phase.eql?(phase)) %>
-        <% end %>
-      </ol>
+    <section id="controls">
+      <%= next_step_button(@round) %>
     </section>
   </main>
 </article>

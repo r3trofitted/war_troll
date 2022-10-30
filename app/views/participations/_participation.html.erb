@@ -1,9 +1,15 @@
-<article class="combatant_card block">
-  <h3><%= participation.combatant_name %></h3>
-  <dl class="combatant_stats">
-    <dt><%= t ".hit_points" %></dt>
-    <dd><%= hit_points_counter(participation.combatant) %></dd>
-    <dt><%= t ".activity" %></dt>
-    <dd><%= number_to_percentage(participation.activity_left, precision: 0) %></dd>
+<article class="combatant_card block floating">
+  <h3 class="combatant_stat name"><%= participation.combatant_name %></h3>
+  <dl class="grid_ignore">
+    <div class="combatant_stat hit_points">
+      <dt class="combatant_stat_label"><%= t ".hit_points" %></dt>
+      <dd class="combatant_stat_value">
+        <%= participation.combatant.current_hit_points %><sub>/<%= participation.combatant.base_hit_points %></sub>
+      </dd>
+    </div>
+    <div class="combatant_stat activity">
+      <dt class="combatant_stat_label"><%= t ".activity" %></dt>
+      <dd class="combatant_stat_value"><%= number_to_percentage(participation.activity_left, precision: 0, format: "%n<sub>%</sub>".html_safe) %></dd>
+    </div>
   </dl>
 </article>

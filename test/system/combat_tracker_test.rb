@@ -15,70 +15,71 @@ class CombatTrackerTest < ApplicationSystemTestCase
     assert_content "Round 1"
     
     # Setup
-    assert_content "Current phase: setup"
+    assert_content "Current phase: Setup"
     
     click_on "Add a combatant"
     fill_in "Name", with: "Auberc"
-    fill_in "Hit points", with: "50"
+    fill_in "Hits", with: "50"
     click_on "Add"
     
     click_on "Add a combatant"
     fill_in "Name", with: "Balor"
-    fill_in "Hit points", with: "60"
+    fill_in "Hits", with: "60"
     click_on "Add"
     
     click_on "Add a combatant"
     fill_in "Name", with: "Crocodile #1"
-    fill_in "Hit points", with: "80"
+    fill_in "Hits", with: "80"
     click_on "Add"
     
-    click_on "Move to next phase (spell)"
+    click_on "Move to next phase"
     
     # Spell
     within "#combatants" do
       assert_content "Auberc"
       assert_content "Balor"
       assert_content "Crocodile #1"
-    refute_content "Add a combatant"
+      
+      refute_content "Add a combatant"
     end
     
-    click_on "Move to next phase (spell results)"
+    click_on "Move to next phase"
     
     # Spell results
     # TODO
-    click_on "Move to next phase (spell orientation)"
+    click_on "Move to next phase"
     
     # Spell orientation
     # TODO
-    click_on "Move to next phase (fire (A))"
+    click_on "Move to next phase"
 
     # Fire (A)
     # TODO
-    click_on "Move to next phase (fire results (A))"
+    click_on "Move to next phase"
 
     # Fire resuls (A)
     # TODO
-    click_on "Move to next phase (movement/maneuver)"
+    click_on "Move to next phase"
 
     # Movement.maneuvre
     # TODO
-    click_on "Move to next phase (fire (B))"
+    click_on "Move to next phase"
 
     # Fire (B)
     # TODO
-    click_on "Move to next phase (fire results (B))"
+    click_on "Move to next phase"
 
     # Fire results (B)
     # TODO
-    click_on "Move to next phase (melee)"
+    click_on "Move to next phase"
 
     # Melee
     # TODO
-    click_on "Move to next phase (melee results)"
+    click_on "Move to next phase"
 
     # Melee results
     # TODO
-    click_on "Move to next phase (final orientation)"
+    click_on "Move to next phase"
 
     # Final orientation
     # TODO
@@ -88,7 +89,7 @@ class CombatTrackerTest < ApplicationSystemTestCase
     assert_current_path "/combats/#{combat_id}/round-2"
     assert_content "Combat ##{combat_id}"
     assert_content "Round 2"
-    assert_content "Current phase: setup"
+    assert_content "Current phase: Setup"
     
     within "#combatants" do
       assert_content "Auberc"

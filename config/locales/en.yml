@@ -1,13 +1,15 @@
 en:
   participations:
     participation:
-      activity: "Activity"
-      hit_points: "Hit Points"
+      activity: "Activity left"
+      hit_points: "Hits"
   helpers:
     label:
       combatant:
-        base_activity: Activity
-        base_hit_points: Hit points
+        base_hit_points: "Hits"
+        name: "Name"
+      participation:
+        base_activity: "Activity"
     submit:
       participation:
         create: "Add"
@@ -18,18 +20,18 @@ en:
       combat_tracker:
         title: "War Troll – Combat tracker"
   phases:
-    setup: "setup"
-    spell: "spell"
-    spell_results: "spell results"
-    spell_orientation: "spell orientation"
-    fire_a: "fire (A)"
-    fire_results_a: "fire results (A)"
-    movement_maneuvre: "movement/maneuver"
-    fire_b: "fire (B)"
-    fire_results_b: "fire results (B)"
-    melee: "melee"
-    melee_results: "melee results"
-    final_orientation: "final orientation"
+    setup: "Setup"
+    spell: "Spell"
+    spell_results: "Spell Results"
+    spell_orientation: "Spell Orientation"
+    fire_a: "Fire (A)"
+    fire_results_a: "Fire Results (A)"
+    movement_maneuvre: "Movement/Maneuver"
+    fire_b: "Fire (B)"
+    fire_results_b: "Fire results (B)"
+    melee: "Melee"
+    melee_results: "Melee Results"
+    final_orientation: "Final Orientation"
   rounds:
     new_participation:
       add_a_combatant: "Add a combatant"
@@ -37,6 +39,6 @@ en:
       combatants: "Combatants"
       combat_id: "Combat #%{id}"
       current_phase: "Current phase: %{phase}"
-      move_to_next_phase: "Move to next phase (%{phase})"
+      move_to_next_phase: "Move to next phase"
       move_to_next_round: "Move to next round"
       round_number: "Round %{number}"

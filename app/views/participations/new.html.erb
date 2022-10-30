@@ -1,24 +1,24 @@
 <%= turbo_frame_tag "new_participation" do %>
-  <%= form_with model: [@participation.round, @participation], class: "new_participation_form" do |f| %>
-    <fieldset>
-      <%= f.fields_for :combatant do |cf| %>
-        <%= cf.label :name %>
-        <%= cf.text_field :name %>
+  <%= form_with model: [@participation.round, @participation], class: "grid_ignore" do |f| %>
+    <%= f.fields_for :combatant do |cf| %>
+      <%= cf.label :name, class: "combatant_stat name" do |b| %>
+        <span class="combatant_stat_label"><%= b.translation %></span>
+        <%= cf.text_field :name, autofocus: true %>
       <% end %>
-    </fieldset>
-    
-    <fieldset>
-      <%= f.fields_for :combatant do |cf| %>
-        <%= cf.label :base_hit_points %>
-        <%= cf.text_field :base_hit_points %>
+    <% end %>
+
+    <%= f.fields_for :combatant do |cf| %>
+      <%= cf.label :base_hit_points, class: "combatant_stat hit_points" do |b| %>
+        <span class="combatant_stat_label"><%= b.translation %></span>
+        <%= cf.text_field :base_hit_points, class: "combatant_stat_value" %>
       <% end %>
+    <% end %>
+  
+    <%= f.label :base_activity, class: "combatant_stat activity" do |b| %>
+      <span class="combatant_stat_label"><%= b.translation %></span>
+      <%= f.text_field :base_activity, class: "combatant_stat_value" %>
+    <% end %>
     
-      <%= f.label :base_activity %>
-      <%= f.text_field :base_activity %>
-    </fieldset>
-    
-    <fieldset class="form_controls">
-      <%= f.button %>
-    </fieldset>
+    <%= f.button class: "add_combatant" %>
   <% end %>
 <% end %>
