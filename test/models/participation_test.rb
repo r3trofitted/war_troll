@@ -10,7 +10,7 @@ class ParticipationTest < ActiveSupport::TestCase
   end
   
   test "available actions at a given phase" do
-    melee_round   = Round.new(phase: Round::MELEE)
+    melee_round   = Round.new(phase: :melee)
     participation = Participation.new(round: melee_round)
     
     available_actions = participation.actions.available_for_current_phase
@@ -20,7 +20,7 @@ class ParticipationTest < ActiveSupport::TestCase
   end
   
   test "available actions at a given phase when an action is already declared" do
-    melee_round   = Round.create! phase: Round::MELEE, combat: @auberc_and_balor_vs_crocodile
+    melee_round   = Round.create! phase: :melee, combat: @auberc_and_balor_vs_crocodile
     participation = Participation.create! round: melee_round, combatant: @auberc
     participation.actions.create! type: MeleeAttack
     

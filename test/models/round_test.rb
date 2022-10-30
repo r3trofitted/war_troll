@@ -2,13 +2,13 @@ require "test_helper"
 
 class RoundTest < ActiveSupport::TestCase
   test "#continue! moves the round to its next phase" do
-    round = Round.new(combat: Combat.new, phase: Round::FIRE_A)
+    round = Round.new(combat: Combat.new, phase: :fire_a)
     round.continue!
-    assert_equal Round::FIRE_RESULTS_A, round.phase
+    assert round.at_phase_fire_results_a?
   end
 
   test "#continue! raises an error if the round is at its last phase" do
-    round = Round.new(combat: Combat.new, phase: Round::FINAL_ORIENTATION)
+    round = Round.new(combat: Combat.new, phase: :final_orientation)
     assert_raises(Round::FinishedRoundError) { round.continue! }
   end
   

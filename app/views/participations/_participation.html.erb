@@ -14,9 +14,15 @@
       </div>
     </dl>
     
-    <div class="combatant_actions">
-      <%= render participation.actions.available_for_current_phase %>
-      <%= render participation.actions.prepared_for_current_phase %>
+    <div class="combatant_controls">
+      <% if participation.at_resolution_phase? && participation.resolution.present? %>
+        <%= render participation.resolution %>
+      <% elsif participation.at_action_phase? %>
+        <div class="combatant_actions">
+          <%= render participation.actions.available_for_current_phase %>
+          <%= render participation.actions.prepared_for_current_phase %>
+        </div>
+      <% end %>
     </div>
   </article>
 <% end %>

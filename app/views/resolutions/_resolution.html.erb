@@ -1,0 +1,14 @@
+<%= tag.div class: ["combatant_resolution", resolution.status] do %>
+  <% if resolution.pending? %>
+    <%= button_to t("resolutions.yes"), success_action_resolution_path(resolution.action), form_class: "grid_ignore", class: "combatant_action" %>
+    <%= button_to t("resolutions.no"), failure_action_resolution_path(resolution.action), form_class: "grid_ignore", class: "combatant_action" %>
+    <p>
+      <%= t "resolutions.#{resolution.action.model_name.i18n_key}.inquiry" %>
+    </p>
+  <% else %>
+    <p>
+      <%= t "resolutions.#{resolution.action.model_name.i18n_key}.#{resolution.status}", combatant: resolution.combatant_name %>
+      (<%= link_to t("resolutions.change"), action_resolution_path(resolution.action), data: { turbo_method: :delete } %>)
+    </p>
+  <% end %>
+<% end %>

@@ -4,7 +4,7 @@ class ActionsController < ApplicationController
     
     if @action.save
       respond_to do |format|
-        format.turbo_stream { render turbo_stream: turbo_stream.update(@action.participation) }
+        format.turbo_stream { render turbo_stream: turbo_stream.replace(@action.participation) }
         format.html { redirect_to @action.round }
       end
     else

@@ -20,7 +20,14 @@ Rails.application.routes.draw do
         post "next"
       end
       resources :participations, only: %w[new create], shallow: true do
-        resources :actions, only: %i(create destroy)
+        resources :actions, only: %i(create destroy), shallow: true do
+          resource :resolution, only: :destroy do
+            member do
+              post "success"
+              post "failure"
+            end
+          end
+        end
       end
     end
   end

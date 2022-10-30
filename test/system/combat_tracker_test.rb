@@ -57,12 +57,12 @@ class CombatTrackerTest < ApplicationSystemTestCase
       assert_button "Prepare a spell"
       assert_button "Cast a spell"
       
-      click_on "Prepare a spell"
+      click_on "Cast a spell"
       
-      refute_button "Prepare a spell"
-      assert_button "Cast a spell", disabled: true
-      assert_text "Balor prepares a spell"
-      assert_text %r|Activity left\s*10%|
+      assert_button "Prepare a spell", disabled: true
+      refute_button "Cast a spell"
+      assert_text "Balor casts a spell"
+      assert_text %r|Activity left\s*25%|
     end
     
     within :combatant_card, "Crocodile #1" do
@@ -73,7 +73,26 @@ class CombatTrackerTest < ApplicationSystemTestCase
     click_on "Move to next phase"
     
     # Spell results
-    # TODO
+    within :combatant_card, "Balor" do
+      assert_text "Was the spell successful?"
+      assert_button "Yes"
+      assert_button "No"
+      
+      click_on "No"
+      
+      assert_text "Balor's spell fails"
+      refute_button "Yes"
+      refute_button "No"
+      
+      click_on "change"
+      
+      assert_button "Yes"
+      assert_button "No"
+      
+      click_on "Yes"
+      
+      assert_text "Balor's spell succeeds"
+    end
     click_on "Move to next phase"
     
     # Spell orientation

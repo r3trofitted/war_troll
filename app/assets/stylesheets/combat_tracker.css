@@ -247,15 +247,9 @@ main {
   background-color: var(--clr-white);
 }
 
-.combatant_actions {
+.combatant_controls {
   --horizontal-offset: calc(0em - var(--horizontal-padding));
   --vertical-offset: calc(0em - var(--vertical-padding));
-  
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  align-items: center;
-  grid-auto-flow: column;
-  row-gap: 0.25em;
   
   grid-column: 1 / -1;
   
@@ -265,7 +259,26 @@ main {
   margin-right: var(--horizontal-offset);
   margin-bottom: var(--vertical-offset);
   
+  color: var(--clr-grey-light);
   background-color: var(--clr-grey);
+}
+
+.combatant_controls a {
+  color: var(--tw-orange-500);
+}
+
+.combatant_controls a:hover {
+  color: var(--tw-orange-700);
+}
+
+.combatant_actions {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  align-content: stretch;
+  height: 100%;
+  grid-auto-flow: column;
+  row-gap: 0.25em;
 }
 
 .combatant_action {
@@ -273,6 +286,7 @@ main {
   margin: 1px 0;
   
   border: none;
+  color: var(--clr-black);
   background-color: var(--tw-slate-200);
   
   padding-left: var(--horizontal-padding);
@@ -296,16 +310,30 @@ main {
 .declared_action {
   grid-column: 3;
   
-  color: var(--clr-grey-light);
-  
   padding-right: 0.25em;
   text-align: right;
 }
 
-.declared_action a {
-  color: var(--tw-orange-500);
+/* Controls variant: resolution */
+.combatant_resolution {
+  display: grid;
+  align-items: center;
+  grid-auto-flow: column;
+  row-gap: 0.25em;
+  align-content: stretch;
+  height: 100%;
 }
 
-.declared_action a:hover {
-  color: var(--tw-orange-700);
+.combatant_resolution.pending {
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.combatant_resolution p {
+  grid-row: span 2;
+  place-self: center;
+  padding: 0.25em;
+}
+
+.combatant_resolution.is(.successful, .failed) {
 }

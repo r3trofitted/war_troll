@@ -23,6 +23,30 @@ en:
     participation:
       activity: "Activity left"
       hit_points: "Hits"
+  resolutions:
+    change: "change"
+    "yes": "Yes"
+    "no": "No"
+    movement:
+      inquiry: "Was the movement successful?"
+      successful: "%{combatant}'s movement succeeds"
+      failed: "%{combatant}'s movement fails"
+    maneuvre:
+      inquiry: "Was the maneuvre successful?"
+      successful: "%{combatant}'s maneuvre succeeds"
+      failed: "%{combatant}'s maneuvre fails"
+    melee_attack:
+      inquiry: "Was the attack successful?"
+      successful: "%{combatant}'s attack succeeds"
+      failed: "%{combatant}'s attack fails"
+    missile_attack:
+      inquiry: "Was the attack successful?"
+      successful: "%{combatant}'s attack succeeds"
+      failed: "%{combatant}'s attack fails"
+    spell_casting:
+      inquiry: "Was the spell successful?"
+      successful: "%{combatant}'s spell succeeds"
+      failed: "%{combatant}'s spell fails"
   helpers:
     label:
       combatant:
