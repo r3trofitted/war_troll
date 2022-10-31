@@ -30,6 +30,12 @@ class Participation < ApplicationRecord
     base_activity - actions.sum(&:activity_cost)
   end
   
+  def prepared_and_suggested_actions
+    round.action_types.map do |t|
+      actions.grep(t).reject(&:suggested?).first || Action.new(type: t, participation: self)
+    end
+  end
+  
   def resolution
     if first_pending_action = actions.resolvable_for_current_phase.first
       Resolution.new(action: first_pending_action)

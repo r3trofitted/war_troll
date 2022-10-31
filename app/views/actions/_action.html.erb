@@ -1,13 +1,17 @@
-<% if action.new_record? %>
-  <%= form_with model: action, scope: "participation_action", class: "grid_ignore" do |f| %>
-    <%= f.button t("actions.#{action.model_name.i18n_key}.new_action"), class: "combatant_action", disabled: action.disallowed? %>
-    <span class="activity_cost">
-      (<%= f.text_field :activity_cost %>%)
-    </span>
-  <% end %>
+<% if action.suggested? %>
+  <div class="combatant_action suggested">
+    <%= form_with model: action, scope: "participation_action" do |f| %>
+      <%= f.button t("actions.#{action.model_name.i18n_key}.new_action"), disabled: action.disallowed? %>
+      <span class="activity_cost">
+        <%= f.text_field :activity_cost %>%
+      </span>
+    <% end %>
+  </div>
 <% else %>
-  <p class="declared_action">
-    <%= t "actions.#{action.model_name.i18n_key}.declaration", combatant: action.combatant_name %>
-    (<%= link_to t("actions.cancel"), action_path(action), data: { turbo_method: :delete } %>)
-  </p>
+  <div class="combatant_action declared">
+    <p>
+      <%= t "actions.#{action.model_name.i18n_key}.declaration", combatant: action.combatant_name %>
+      (<%= link_to t("actions.cancel"), action_path(action), data: { turbo_method: :delete } %>)
+    </p>
+  </div>
 <% end %>

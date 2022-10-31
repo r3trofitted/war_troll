@@ -15,13 +15,12 @@
     </dl>
     
     <div class="combatant_controls">
-      <% if participation.at_resolution_phase? && participation.resolution.present? %>
-        <%= render participation.resolution %>
-      <% elsif participation.at_action_phase? %>
-        <div class="combatant_actions">
-          <%= render participation.actions.available_for_current_phase %>
-          <%= render participation.actions.prepared_for_current_phase %>
-        </div>
+      <%= tag.div class: class_names("combatant_controls_container", resolution_layout: participation.at_resolution_phase?) do %>
+        <% if participation.at_resolution_phase? && participation.resolution.present? %>
+          <%= render participation.resolution %>
+        <% elsif participation.at_action_phase? %>
+          <%= render participation.prepared_and_suggested_actions %>
+        <% end %>
       <% end %>
     </div>
   </article>

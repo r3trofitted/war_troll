@@ -5,7 +5,7 @@ class Action < ApplicationRecord
   
   delegate :combatant_name, :round, to: :participation
   
-  enum :status, %w[declared successful failed], default: :declared
+  enum :status, %w[declared successful failed], default: :declared # TODO: start at the :suggested sttus
   
   validates_presence_of :participation, :type, :activity_cost
   # FIXME: validates activity_cost compared to base_activity_cost
@@ -14,6 +14,10 @@ class Action < ApplicationRecord
   
   after_initialize do
     self.activity_cost ||= (base_activity_cost.try(:max) || base_activity_cost)
+  end
+  
+  def suggested?
+    new_record?
   end
   
   def allowed?
