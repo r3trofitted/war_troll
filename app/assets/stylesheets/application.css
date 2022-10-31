@@ -55,7 +55,6 @@
   --ts-800: 3.157rem;
   --ts-900: 4.209rem;
   
-  
   /* Application palette */
   --clr-black: var(--tw-slate-900);
   --clr-white: var(--tw-slate-50);
@@ -63,13 +62,13 @@
   --clr-grey: var(--tw-slate-600);
   --clr-grey-light: var(--tw-slate-300);
   
-  --clr-blue: rgb(var(--tw-blue-600));
+  --clr-blue: rgb(var(--tw-blue-600)); /* TODO: use #025FB2 instead */
   --clr-blue-light: var(--tw-blue-300);
   
   /* Application fonts & text */
   --ff-title: "Montserrat", sans-serif;
-  --ff-body:    "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
-  --ff-aside:   'Montserrat', sans-serif;
+  --ff-body:  "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  --ff-aside: "Montserrat", sans-serif;
   
   --fw-regular: 400;
   --fw-bold:    700;
@@ -79,6 +78,13 @@
   --fs-subheading: var(--ts-600);
   --fs-body:       var(--ts-400);
   --fs-footnote:   var(--ts-300);
+}
+
+/* Font Awesome icons */
+.icon::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* CSS reset (from https://piccalil.li/blog/a-modern-css-reset) */

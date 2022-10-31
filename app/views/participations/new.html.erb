@@ -1,23 +1,23 @@
 <%= turbo_frame_tag "new_participation" do %>
   <%= form_with model: [@participation.round, @participation], class: "grid_ignore" do |f| %>
     <%= f.fields_for :combatant do |cf| %>
-      <%= cf.label :name, class: "combatant_stat name" do |b| %>
-        <span class="combatant_stat_label"><%= b.translation %></span>
+      <div class="combatant_name">
+        <%= cf.label :name, class: "combatant_stat_label" %>
         <%= cf.text_field :name, autofocus: true %>
-      <% end %>
+      </div>
     <% end %>
 
     <%= f.fields_for :combatant do |cf| %>
-      <%= cf.label :base_hit_points, class: "combatant_stat hit_points" do |b| %>
-        <span class="combatant_stat_label"><%= b.translation %></span>
+      <div class="combatant_stat hit_points">
+        <%= cf.label :base_hit_points, class: "combatant_stat_label" %>
         <%= cf.text_field :base_hit_points, class: "combatant_stat_value" %>
-      <% end %>
+      </div>
     <% end %>
   
-    <%= f.label :base_activity, class: "combatant_stat activity" do |b| %>
-      <span class="combatant_stat_label"><%= b.translation %></span>
+    <div class="combatant_stat activity">
+      <%= f.label :base_activity, class: "combatant_stat_label" %>
       <%= f.text_field :base_activity, class: "combatant_stat_value" %>
-    <% end %>
+    </div>
     
     <%= f.button class: "add_combatant" %>
   <% end %>

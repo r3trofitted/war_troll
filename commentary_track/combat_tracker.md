@@ -20,3 +20,19 @@
 *   Polymorphic-like routes & resolve
 *   Design adjustements: box shadow so that the grey background is visible
 *   Tricky stuff: adjustable activity, variable activity range, removing vs. disabling suggested actions
+
+### Session 4
+*   Redesign
+*   Refacto
+
+### Session 5: starting on effects
+*   Preliminary notes on effects
+    *   Must be "disabled" when overriden by worse (e.g. 1 "stun no parry" must pass before a "stun" can be applied)
+
+### Session 6: stuck on effects UI
+*   Big refacto of the UI code to accomodate the effects
+*   Significant time lost tweaking the design late and through the code instead of early and through Sketch
+    *   Each experiment broke stuff
+    *   Final approach still breaks thing (in the form)
+*   For good or bad, this exercice also releaved flaws in the original design & code (such as the left padding 
+    that made the first column shorter)
