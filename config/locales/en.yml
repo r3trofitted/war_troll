@@ -22,7 +22,16 @@ en:
   participations:
     participation:
       activity: "Activity left"
+      at_penalty_value_html: "<span class='sr_only'>At </span>%{value}"
+      bleeding_value_html: "<span class='sr_only'>Lose </span>%{value}/rd"
+      effect_duration:
+        one: "for %{count} round"
+        other: "for %{count} rounds"
+      down_value_html: "Down"
       hit_points: "Hits"
+      must_parry_value_html: "Must parry"
+      stunned_no_parry_value_html: "Stunned – No parry"
+      stunned_value_html: "Stunned"
   resolutions:
     change: "change"
     "yes": "Yes"
@@ -77,9 +86,8 @@ en:
     melee_results: "Melee Results"
     final_orientation: "Final Orientation"
   rounds:
-    new_participation:
-      add_a_combatant: "Add a combatant"
     show:
+      add_a_combatant: "Add a combatant"
       combatants: "Combatants"
       combat_id: "Combat #%{id}"
       current_phase: "Current phase: %{phase}"

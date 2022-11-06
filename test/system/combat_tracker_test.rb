@@ -2,8 +2,8 @@ require "application_system_test_case"
 
 class CombatTrackerTest < ApplicationSystemTestCase
   Capybara.add_selector :combatant_card do
-    # matches `<article class="combatant_card">` elements with an `<h3>` child that contains the passed name
-    xpath { |name| ".//article[contains(@class, 'combatant_card') and h3[text()='#{name}']]" }
+    # matches `<article class="participation">` elements with an `<h3>` child that contains the passed name
+    xpath { |name| ".//article[contains(@class, 'participation') and h3[normalize-space(text())='#{name}']]" }
   end
   
   PRETTY_COMBAT_ROUND_URL_PATTERN = %r|combats/(\d+)/round-(\d+)|

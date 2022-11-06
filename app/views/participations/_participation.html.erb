@@ -1,74 +1,49 @@
 <%= turbo_frame_tag participation do %>
-  <article class="combatant_card block floating">
-    <h3 class="combatant_name"><%= participation.combatant_name %></h3>
+  <article class="participation block floating">
+    <h3 class="name value">
+      <%= participation.combatant_name %>
+    </h3>
     <dl class="grid_ignore">
-      <div class="combatant_stat hit_points">
-        <dt class="combatant_stat_label"><%= t ".hit_points" %></dt>
-        <dd class="combatant_stat_value">
-          <%= participation.combatant.current_hit_points %><sub>/<%= participation.combatant.base_hit_points %></sub>
-        </dd>
-      </div>
-      <div class="combatant_stat activity">
-        <dt class="combatant_stat_label"><%= t ".activity" %></dt>
-        <dd class="combatant_stat_value"><%= number_to_percentage(participation.activity_left, precision: 0, format: "%n<sub>%</sub>".html_safe) %></dd>
-      </div>
-    </dl>
-    <dl class="effects">
-      <div class="effect bleeding">
-        <dt>
-          <span class="effect_label sr_only">Bleeding</span>
-          <span class="effect_value">3</span>
-        </dt>
-        <dd>
-          2 rds
-        </dd>
-      </div>
-      <div class="effect at_penalty">
-        <dt>
-          <span class="effect_label sr_only">At</span>
-          <span class="effect_value">-40</span>
-        </dt>
-        <dd>
-          1 rd
-        </dd>
-      </div>
-      <div class="effect must_parry">
-        <dt>
-          <span class="effect_label sr_only">Must parry</span>
-          <span class="effect_value">-20</span>
-        </dt>
-        <dd>
-          1 rd
-        </dd>
-      </div>
-      <div class="effect stunned inactive">
-        <dt>
-          <span class="effect_label sr_only">Stunned</span>
-        </dt>
-        <dd>
-          Add
-        </dd>
-      </div>
-      <div class="effect stunned_no_parry inactive">
-        <dt>
-          <span class="effect_label sr_only">Stunned – No parry</span>
-        </dt>
-        <dd>
-          Add
-        </dd>
-      </div>
-      <div class="effect down inactive">
-        <dt>
-          <span class="effect_label sr_only">Down</span>
-        </dt>
-        <dd>
-          Add
-        </dd>
-      </div>
+      <dt class="hits label">
+        <%= t ".hit_points" %>
+      </dt>
+      <dd class="hits value">
+        <%= participation.combatant.current_hit_points %><sub>/<%= participation.combatant.base_hit_points %></sub>
+      </dd>
+      <dt class="activity label">
+        <%= t ".activity" %>
+      </dt>
+      <dd class="activity value">
+        <%= number_to_percentage(participation.activity_left, precision: 0, format: "%n<sub>%</sub>".html_safe) %>
+      </dd>
+      <dt class="effect label haemorrhages">
+        Haemorrhages
+      </dt>
+      <dd class="effect value haemorrhages" data-effect="bleeding" data-effect-duration="3">
+        2/rd <span class="sr_only">for 3 rounds</span>
+      </dd>
+      <dd class="effect value haemorrhages" data-effect="bleeding" data-effect-duration="2" >
+        1/rd <span class="sr_only">for 2 rounds</span>
+      </dd>
+      <dt class="effect label penalties">
+        Penalties
+      </dt>
+      <dd class="effect value at_penalty" data-effect="at_penalty" data-effect-duration="2" >
+        -30 <span class="sr_only">for 4 rounds</span>
+      </dd>
+      <dt class="effect label restrictions">
+        Restrictions
+      </dt>
+      <dd class="effect value restrictions" data-effect="stunned_no_parry" data-effect-duration="2" >
+        Stunned – no parry <span class="sr_only">for 2 rounds</span>
+      </dd>
+      <dd class="effect value restrictions" data-effect="must_parry" data-effect-duration="1" >
+        Must parry <span class="sr_only">for 1 round</span>
+      </dd>
     </dl>
     
-    <div class="combatant_controls">
-      <%= tag.div class: class_names("combatant_controls_container", resolution_layout: participation.at_resolution_phase?) do %>
+    <div class="controls combatant_controls">
+      <%= tag.div class: class_names("controls_container combatant_controls_container", resolution_layout: participation.at_resolution_phase?) do %>
         <% if participation.at_resolution_phase? && participation.resolution.present? %>
           <%= render participation.resolution %>
         <% elsif participation.at_action_phase? %>

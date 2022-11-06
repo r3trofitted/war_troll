@@ -14,17 +14,15 @@
         <%= render @round.participations %>
       <% end %>
       
-      <% if @round.at_phase_setup? %>
-        <div id="setup_controls" class="combatant_card block">
-          <%= turbo_frame_tag "new_participation" do %>
-            <%= render "new_participation", round: @round %>
-          <% end %>
-        </div>
-      <% end %>
+      <%= turbo_frame_tag "new_participation" %>
     </section>
     
     <section id="controls">
       <%= next_step_button(@round) %>
+      
+      <% if @round.at_phase_setup? %>
+        <%= link_to t(".add_a_combatant"), new_round_participation_path(@round), class: "action", data: { turbo_frame: "new_participation" } %>
+      <% end %>
     </section>
   </main>
 </article>

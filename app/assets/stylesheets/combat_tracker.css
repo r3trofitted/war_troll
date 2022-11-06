@@ -88,16 +88,6 @@ main {
   box-shadow: 0 4px 6px 0 var(--clr-black);
 }
 
-/* Form elements */
-.action {
-  background-color: var(--clr-blue);
-  border: 1px solid var(--clr-white);
-  color: var(--clr-white);
-  padding: 0.5em;
-  border-radius: 0.5em;
-  text-decoration: none;
-}
-
 /* Controls */
 #controls {
   display: flex;
@@ -124,52 +114,169 @@ main {
   content: "";
 }
 
+.action {
+  margin-bottom: 2em;
+  
+  background-color: var(--clr-blue);
+  border: 1px solid var(--clr-white);
+  color: var(--clr-white);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  text-decoration: none;
+}
+
 /* Participations & Combatants */
 #combatants {
-  --gutter: 10px; /* non-relative unit to insure consistency */
-  --half-gutter: calc(var(--gutter) / 2);
-  --gutter-offset: calc(0px - var(--gutter));
+  --gutter: 0.5rem;
   
   display: grid;
-  grid-template-columns: [gutter]var(--gutter) repeat(6, 1fr) [hits]max-content [activity]max-content;
-  gap: var(--gutter);
+  grid-template-columns: repeat(3, 1fr) [hits]max-content [activity]max-content;
+  column-gap: var(--gutter);
+  row-gap: calc(var(--gutter) * 4);
   align-items: start;
 }
 
-.combatant_card {
+.participation {
   display: grid;
   grid-template-columns: subgrid;
-  row-gap: var(--half-gutter);
   
-  grid-column: 2 / -1;
-  
-  padding-top: var(--gutter);
-  margin-left: var(--gutter-offset);
-  padding-left: var(--gutter);
+  grid-column: 1 / -1;
+  row-gap: 2px;
+  grid-auto-flow: column dense;
 }
 
-.combatant_card input {
+.name {
+  grid-column: 1 / hits;
+  grid-row: 1;
+}
+
+.name.value {
+  margin-left: var(--gutter);
+  margin-top: var(--gutter);
+  
+  font-size: var(--fs-subheading);
+  text-align: left;
+}
+
+/* Only present in edit/form mode */
+.name.label {
+  margin-left: var(--gutter);
+  text-align: left;
+}
+
+.hits {
+  grid-column: hits;
+  color: var(--clr-grey);
+}
+
+.activity {
+  grid-column: activity;
+}
+
+.label {
+  grid-row: 2;
+
+  color: var(--clr-grey);
+  font-size: var(--fs-footnote);
+  font-family: var(--ff-aside);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.hits, .activity {
+  text-align: center;
+}
+
+:is(.hits, .activity).value {
+  width: calc(4ch + calc(var(--gutter)/2)); /* large enough to accomodate an input field in edit mode */
+  
+  font-size: var(--fs-heading);
+  font-family: var(--ff-body);
+}
+
+.activity.label {
+  position: relative; /* to add a % sign in edit mode */
+  color: var(--clr-black);
+}
+
+:is(.hits, .activity) sub {
+  font-size: var(--ts-400);
+  vertical-align: baseline;
+  color: var(--clr-grey);
+}
+
+.effect.label:not(:has(+ .effect.value)) {
+  color: var(--clr-grey-light);
+}
+
+.effect.value {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  
+  margin-top: 0.5em;
+  
+  text-align: center;
+  color: var(--clr-grey);
+  font-family: var(--ff-body);
+}
+
+.effect.value + .effect.value { /* all values after the first */
+  color: var(--clr-grey-light);
+}
+
+.effect.value::after {
+  content: "⧖" attr(data-effect-duration);
+}
+
+.haemorrhages {
+  grid-column: 1;
+}
+
+.penalties {
+  grid-column: 2;
+}
+
+.restrictions {
+  grid-column: 3;
+}
+
+/* Edit mode / form */
+
+.edit_mode input {
   width: 100%;
   
   background-color: transparent;
   border: none;
-  
-  text-align: inherit;
-  color: inherit;
 }
 
-.combatant_card .action {
-  grid-column: 1 / -1;
-
-  background-color: transparent;
-  border: none;
-  
-  text-align: center;
-  font-size: var(--fs-subheading);
-  color: inherit;
+.edit_mode .value {
+  margin-top: var(--gutter);
+  background-color: var(--clr-grey-light);
 }
 
-.combatant_card .add_combatant {
+.edit_mode .name.value {
+  padding-left: var(--gutter);
+  width: calc(100% - var(--gutter));
+}
+
+.edit_mode input:focus-within {
+  background-color: var(--clr-grey);
+  color: var(--clr-white) !important;
+}
+
+.edit_mode .activity.label::after {
+  position: absolute;
+  bottom: var(--fs-footnote);
+  transform: translateY(-50%);;
+  right: 0;
+  font-size: var(--ts-400);
+  color: var(--clr-grey);
+  content: "%";
+}
+
+.add_combatant {
   grid-column: -1;
   
   margin: var(--gutter);
@@ -182,172 +289,6 @@ main {
   border-radius: 0.25em;
 }
 
-.combatant_stat {
-  grid-row: 1 / span 2;
-
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  
-  font-size: var(--fs-heading);
-  font-family: var(--ff-body);
-  text-align: center;
-  
-  width: calc(4ch + var(--half-gutter)); /* large enough to accomodate an input field in edit mode */
-}
-
-.combatant_name {
-  grid-column: 1 / hits;
-  grid-row: 1;
-  
-  font-size: var(--fs-subheading);
-  text-align: left;
-}
-
-.combatant_name:has(.combatant_stat_label) {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-}
-
-.combatant_name:has(input) {
-  grid-row: 1 / span 2;
-  margin-left: var(--gutter-offset);
-}
-
-.combatant_name:has(input) > * {
-  padding-left: var(--gutter);
-}
-
-.combatant_stat:has(input),
-.combatant_name:has(input) {
-  background-color: var(--clr-grey-light);
-}
-
-.combatant_stat:focus-within,
-.combatant_name:focus-within {
-  background-color: var(--clr-grey);
-  color: var(--clr-white) !important;
-}
-
-.combatant_stat.hit_points {
-  grid-column: hits;
-  color: var(--clr-grey);
-}
-
-.combatant_stat.activity {
-  grid-column: activity;
-  position: relative; /* to add a % sign in edit mode */
-}
-
-.combatant_stat.activity:has(input)::after {
-  position: absolute;
-  bottom: var(--fs-footnote);
-  transform: translateY(-50%);;
-  right: 0;
-  font-size: var(--ts-400);
-  color: var(--clr-grey);
-  content: "%";
-}
-
-.combatant_stat_value {
-  border: none;
-}
-
-.combatant_stat_value sub {
-  font-size: var(--ts-400);
-  vertical-align: baseline;
-  color: var(--clr-grey);
-}
-
-.combatant_stat_label {
-  font-size: var(--fs-footnote);
-  font-family: var(--ff-title);
-  vertical-align: bottom;
-  color: var(--clr-grey);
-  white-space: nowrap;
-  
-  background-color: var(--clr-white);
-}
-
-.effects {
-  display: contents;
-
-  font-family: var(--ff-body);
-  font-size: var(--fs-footnote);
-  
-  list-style: none;
-}
-
-.effect {
-  display: flex;
-  flex-direction: row;
-  align-items: end;
-  justify-content: start;
-  
-  grid-row: 2;
-}
-
-
-.effect.bleeding {
-  grid-column: 1;
-  --effect-icon: "\f043";
-}
-
-.effect.at_penalty {
-  grid-column: 2;
-  --effect-icon: "";
-}
-
-.effect.must_parry {
-  grid-column: 3;
-  --effect-icon: "\f132";
-}
-
-.effect.stunned {
-  grid-column: 4;
-  --effect-icon: "\f5c0";
-}
-
-.effect.stunned_no_parry {
-  grid-column: 5;
-  --effect-icon: "\f005";
-}
-
-.effect.down {
-  grid-column: 6;
-  --effect-icon: "\f567";
-}
-
-.effect.inactive {
-  color: var(--clr-grey-light);
-}
-
-.effect dt {
-  border-radius: 0.5em;
-  border: 1px solid var(--clr-blue);
-  background-color: var(--clr-blue);
-  padding: 0.25em;
-  margin-right: 0.25em;
-  color: var(--clr-white);
-  
-  min-width: 5ch;
-  text-align: center;
-  
-  font-family: var(--ff-aside);
-}
-
-.effect.inactive dt {
-  background-color: var(--clr-white);
-  border-color: var(--grey-light);
-  color: var(--clr-grey-light);
-}
-
-.effect dt::after {
-  font: var(--fa-font-solid);
-  content: var(--effect-icon);
-}
-
 /* Controls panel */
 .combatant_controls {
   display: grid;
@@ -356,9 +297,6 @@ main {
   align-items: stretch;
   
   grid-column: 1 / -1;
-  
-  margin-left: var(--gutter-offset);
-  padding-left: var(--gutter);
   
   color: var(--clr-grey-light);
   background-color: var(--clr-grey);
@@ -401,8 +339,6 @@ main {
 */
 .combatant_action {
   justify-self: stretch;
-  margin-left: var(--gutter-offset);
-  padding-left: var(--gutter);
   
   align-self: end;
 }
@@ -412,7 +348,7 @@ main {
 }
 
 .combatant_action.suggested {
-  grid-column: 1 / span 3; /* action suggestion (i.e. buttons) are limited in size */
+  grid-column: 1 / span 2; /* action suggestion (i.e. buttons) are limited in size */
   
   color: var(--clr-black);
   background-color: var(--tw-slate-200);
@@ -449,6 +385,8 @@ main {
 
 .combatant_action .activity_cost input {
   width: 3ch;
+  border: none;
+  background-color: transparent;
 }
 
 /* Control panels: resolution
@@ -458,7 +396,7 @@ main {
    only a <button>).
 */
 .resolution_choice {
-  grid-column: 6;
+  grid-column: -1;
   
   justify-self: stretch;
   
@@ -473,8 +411,9 @@ main {
 }
 
 .resolution_notice {
-  grid-column: 1 / 6;
+  grid-column: 1 / -2;
   grid-row: 1 / -1;
   place-self: center start;
   width: 100%;
+  margin-left: var(--gutter);
 }
