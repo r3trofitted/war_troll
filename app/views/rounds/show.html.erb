@@ -1,0 +1,40 @@
+<article class="round">
+  <header>
+    <p class="combat_id"><%= t ".combat_id", id: vanity_combat_id(@round) %></p>
+    <h1 class="round_number"><%= link_to t(".round_number", number: @round.number), @round %></h1>
+  </header>
+  <main>
+    <section id="round_controls">
+      <p>
+        <%= t ".current_phase", phase: t(@round.phase, scope: "phases") %>
+      </p>
+      <%= next_step_button(@round) %>
+    </section>
+    
+    <section id="combatants">
+      <h2 class="sr_only">
+        <%= t ".combatants" %>
+      </h2>
+      
+      <%= turbo_frame_tag "all_participations" do %>
+        <%= render @round.participations %>
+      <% end %>
+      
+      <% if @round.at_phase_setup? %>
+        <div id="setup_controls" class="block">
+          <%= turbo_frame_tag "new_participation" do %>
+            <%= render "new_participation", round: @round %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+    
+    <section id="phases_tracker">
+      <ol start="0">
+        <% Round::PHASES.each do |phase| %>
+          <%= tag.li t(phase, scope: "phases"), class: class_names("current_phase": @round.phase.eql?(phase)) %>
+        <% end %>
+      </ol>
+    </section>
+  </main>
+</article>

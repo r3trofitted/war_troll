@@ -1,0 +1,24 @@
+<%= turbo_frame_tag "new_participation" do %>
+  <%= form_with model: [@participation.round, @participation], class: "new_participation_form" do |f| %>
+    <fieldset>
+      <%= f.fields_for :combatant do |cf| %>
+        <%= cf.label :name %>
+        <%= cf.text_field :name %>
+      <% end %>
+    </fieldset>
+    
+    <fieldset>
+      <%= f.fields_for :combatant do |cf| %>
+        <%= cf.label :base_hit_points %>
+        <%= cf.text_field :base_hit_points %>
+      <% end %>
+    
+      <%= f.label :base_activity %>
+      <%= f.text_field :base_activity %>
+    </fieldset>
+    
+    <fieldset class="form_controls">
+      <%= f.button %>
+    </fieldset>
+  <% end %>
+<% end %>

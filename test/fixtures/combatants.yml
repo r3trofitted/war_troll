@@ -1,0 +1,11 @@
+auberc:
+  name: Auberc
+  base_hit_points: 50
+
+balor:
+  name: Balor
+  base_hit_points: 60
+
+crocodile:
+  name: Crocodile
+  base_hit_points: 80

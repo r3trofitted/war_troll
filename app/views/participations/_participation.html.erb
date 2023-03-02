@@ -1,0 +1,9 @@
+<article class="combatant_card block">
+  <h3><%= participation.combatant_name %></h3>
+  <dl class="combatant_stats">
+    <dt><%= t ".hit_points" %></dt>
+    <dd><%= hit_points_counter(participation.combatant) %></dd>
+    <dt><%= t ".activity" %></dt>
+    <dd><%= number_to_percentage(participation.activity_left, precision: 0) %></dd>
+  </dl>
+</article>

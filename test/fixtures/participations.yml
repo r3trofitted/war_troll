@@ -1,0 +1,14 @@
+auberc_in_auberc_and_balor_vs_crocodile_round_one:
+  round: auberc_and_balor_vs_crocodile_round_one
+  combatant: auberc
+  base_activity: 100
+
+balor_in_auberc_and_balor_vs_crocodile_round_one:
+  round: auberc_and_balor_vs_crocodile_round_one
+  combatant: balor
+  base_activity: 100
+
+crocodile_in_auberc_and_balor_vs_crocodile_round_one:
+  round: auberc_and_balor_vs_crocodile_round_one
+  combatant: crocodile
+  base_activity: 100

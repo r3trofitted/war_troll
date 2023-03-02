@@ -1,0 +1,5 @@
+<%= turbo_stream.update "new_participation" do %>
+  <%= render "rounds/new_participation", round: @round %>
+<% end %>
+
+<%= turbo_stream.append "all_participations", @participation %>
