@@ -37,6 +37,7 @@ class ResolutionsController < ApplicationController
   private
   
   def load_resolution
-    @resolution = Resolution.new(action: Action.find(params[:action_id]))
+    # Rails 7.introduced AbstractController::Helpers::Resolution, so we need the double colon to avoid any confusion
+    @resolution = ::Resolution.new(action: Action.find(params[:action_id]))
   end
 end
