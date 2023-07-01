@@ -10,12 +10,11 @@ class ActionTest < ActiveSupport::TestCase
   test "default activity_cost when base_activity_cost is a range" do
     action_class = Class.new(Action) { self.base_activity_cost = 13..37 }
     action = action_class.new
-    assert_equal 37, action.activity_cost # default is the max value of the range
+    assert_equal 37, action.activity_cost, "the default should be the max value of the range"
   end
   
   test "actions are allowed if their participation has enough activity left" do
-    # Must use a named class to persiste its instances
-    ActionClass = Class.new(Action) { self.base_activity_cost = 60 }
+    ActionClass = Class.new(Action) { self.base_activity_cost = 60 } # Must use a named class to persist its instances
     
     action = ActionClass.new(participation: @auberc_in_auberc_and_balor_vs_crocodile_round_one)
     assert action.allowed?
