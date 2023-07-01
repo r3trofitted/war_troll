@@ -30,5 +30,7 @@ module WarTroll
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    
+    config.annotations.register_tags "SMELL"
   end
 end
